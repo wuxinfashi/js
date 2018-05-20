@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*目标交换两个变量
+    步骤：
+    0.定义一个中间值
+    1。把a存储进中间值，把b交换给a
+    2.把中间值交换给b*/
+    var a=1;
+    var b=2;
+    console.log('a:'+a+'-----'+'b:'+b);
+/*
+    b=a;
+    a=b;
+    console.log('a:'+a+'-----'+'b:'+b);
+    错误
+*/
+/*目标交换两个变量
+ 步骤：
+ 0.定义一个中间值
+ 1。把a存储进中间值，把b交换给a
+ 2.把中间值交换给b*/
+    var aac = 0;
+    aac = a;
+    a=b;
+    b=aac;
+    console.log('a:'+a+'-----'+'b:'+b);
+/*    交换中间值（数字型，不允许用中间值）
+    步骤：
+    1.求和。
+    2.利用和减去自身字符个
+    3.和减去另一个自身字符*/
+var a =10;
+var b =20;
+a = a+b;
+b=a - b;
+a=a - b;
+console.log('a:'+a+'-----'+'b:'+b);
+
+
+</script>
+
+</body>
+</html>

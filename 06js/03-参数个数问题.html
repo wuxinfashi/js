@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+//    如果参数个数与形参个数不一致:(一般情况下,不会让形参和实参不匹配)
+//1.实参大于行参:忽略最后一个参数,正常执行.
+//2.形参大于实参:要看程序是否报错.(报错,NaN,undefined)
+function SUM(a,b) {
+    alert(a+b);
+}
+
+SUM(1,2,3);
+SUM(1);
+
+
+
+</script>
+</body>
+</html>

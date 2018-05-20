@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var arr = [];
+    arr.push(1);
+    console.log(arr);
+//arguments的作用
+    fn(1,2);
+    fn(1,2,3,4,5);
+function fn(a,b) {
+//    只在函数中使用,实参的数组
+    arguments[0]=0;/*伪数组允许更改值,但是不允许修改长度*/
+    console.log(arguments);
+    console.log( arguments instanceof Array);
+    console.log( arguments.length);/*求实参的长度*/
+    console.log( arguments.callee);/*代表整改函数*/
+
+
+    //伪数组:不能修改长短的数组
+//    arguments.push(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

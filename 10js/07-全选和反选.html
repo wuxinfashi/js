@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border: 1px solid #000;
+            padding: 5px;
+            margin: 100px auto;
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid #cccccc;
+            padding: 1px;
+        }
+        th{
+            border: 1px solid #cccccc;
+            padding: 1px;
+        }
+        #first{
+            background-color: deepskyblue;
+        }
+    </style>
+
+</head>
+<body>
+<table>
+    <thead>
+    <tr id="first">
+        <th><input type="checkbox" id="theadInp"></th>
+        <th>菜名</th>
+        <th>饭店</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>地三鲜</td>
+        <td>田老师</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>西红柿鸡蛋</td>
+        <td>田老师</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>醋溜土豆丝</td>
+        <td>田老师</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>萝卜干豆嘴</td>
+        <td>田老师</td>
+    </tr>
+    </tbody>
+
+</table>
+
+
+<script>
+//    需求:1.头部按钮选中则下面全部选中或者反选.
+//思路:获取了上面的按钮,只需要判断checked的属性是true还是false,如果是true,下面全部变成true,相反同理
+// 2.下面按钮全选,头部按钮也被选中.
+var head = document.getElementById('theadInp');
+var tbody = document.getElementById('tbody');
+var botInpArr = tbody.getElementsByTagName('input');
+//复杂版本:
+/*head.onclick = function () {
+if(head.checked){
+    for(i = 0;i<botInpArr.length;i++){
+        botInpArr[i].checked = true;
+        }
+}
+    else {
+        for(i = 0;i<botInpArr.length;i++)
+        {
+            botInpArr[i].checked = false;
+        }
+    }
+
+}*/
+
+//简化版本：(子随父)
+head.onclick = function () {
+    for(var i=0;i<botInpArr.length;i++){
+        botInpArr[i].checked = this.checked;
+    }
+}
+
+
+//需求2:伪数组不能用every等方法
+//思路:为下面每一个input按钮绑定事件,每点击一次都判断所有按钮checked属性值是否全部都是true
+for(var i =0;i<botInpArr.length;i++){
+    botInpArr[i].onclick=function () {
+        for(var j=0;j<botInpArr.length;j++){
+            var bool = true;
+            if(botInpArr[j].checked === false){
+                bool = false;
+            }
+        }
+//        自动判断
+        head.checked = bool;
+    }
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

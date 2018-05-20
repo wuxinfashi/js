@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+/*    fn1();
+    fn2();
+    fn3();*/
+//后两种函数定义方法必须在函数定义后使用，第一种定义方法最健全。
+
+
+
+//    方式一：
+    function fn1() {
+       console.log('我是第一种定义方法')
+    }
+    fn1();
+// 第一种定义方法不能通过变量直接执行函数,必须加().
+//    方式二（可以没有函数名，因为赋值给变量了。)
+//第二种方法也成为匿名函数
+    var fn2 = function () {
+        console.log('我是第二种定义方法')
+    }
+     fn2();
+// 第二种定义方法不能通过变量直接执行函数,必须加().
+//    方式三
+    var fn3 = new Function(console.log('我是第三种方法'));
+    fn3;
+//    第三种定义方法可以通过变量直接执行函数,不需要添加().
+    
+</script>
+</body>
+</html>

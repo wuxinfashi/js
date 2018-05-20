@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<button>
+    动画
+</button>
+
+<div></div>
+<script>
+    var btn = document.getElementsByTagName('button')[0];
+    var div = document.getElementsByTagName('div')[0];
+    console.log(div);
+//闪动动画
+//    btn.onclick = function () {
+//        div.style.left = "500px";
+//    }
+
+//匀速运动
+    btn.onclick = function () {
+//        定时器:每隔一定时间向右走一段距离
+        setInterval(fn,300);
+        function fn() {
+//            console.log(parseInt(div.style.left));style.left的返回值是Nan,不能用
+//            实现动画原理:用style.left来赋值,用offsetLeft来获取值
+            div.style.left =div.offsetLeft+10+'px';//style.left的返回值是Nan,不能用
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>

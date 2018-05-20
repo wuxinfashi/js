@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//instanceof 可以判定各种类型对象,包括自定义对象
+//    定义方法:
+/*var arr1 = [1,2,3,4,5];
+ var arr2 = new Array(1,2);
+ var str1 = new String('abc');
+ var str2 = 'abc';*/
+
+//    检测数组
+//方法1: 数组 instanceof Array
+    console.log(arr1 instanceof Array);
+    console.log(str1 instanceof String);/*检查是否字符串*/
+    console.log(str2 instanceof String);/*str2是简单数据类型,不是对象*/
+
+//方法2:Array.isArray(数组)
+console.log(Array.isArray(arr1));
+
+//    转换数组
+//    1.toString(把数组变成字符串)
+console.log(arr1);
+console.log(arr1.toString());
+console.log(typeof arr1.toString());
+
+//2.valueOf(被舍弃)
+console.log(arr1.valueOf());
+console.log(typeof arr1.valueOf());
+
+//join方法(把数组元素用特殊方式连接成变成字符串)(参数决定用什么连接)
+
+    var arr3 = ['关羽','张飞','刘备'];
+    var str = arr3.join();
+    var str2 = arr3.join(' ');/*如果用空格连接,元素之间会有空格*/
+    var str3 = arr3.join('');/*用空字符串则什么都没有*/
+    var str4 = arr3.join('&');/*用&符号连接*/
+
+    console.log(str);/*(无参数默认用逗号连接)*/
+    console.log(str2);
+    console.log(str3);
+    console.log(str4);
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

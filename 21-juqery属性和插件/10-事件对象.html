@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+//         event.data 					传递给事件处理程序的额外数据
+//         event.currentTarget 			等同于this，当前DOM对象
+//         event.pageX 					鼠标相对于文档左部边缘的位置
+//         event.target 					触发事件源，不一定===this
+//         event.stopPropagation()；	阻止事件冒泡
+//         event.preventDefault(); 	阻止默认行为
+//         event.type 					事件类型：click，dbclick…
+//         event.which 					鼠标的按键类型：左1 中2 右3
+//         event.keyCode				键盘按键代码
+
+        $(function () {
+            $(document).on("click", {"aaa":111},function (e) {
+                console.log(e.data);
+                console.log(e.currentTarget );
+                console.log(e.target );
+                console.log(e.pageX );
+                console.log(e.type );
+                console.log(e.which );
+                console.log(e.keyCode);
+            });
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

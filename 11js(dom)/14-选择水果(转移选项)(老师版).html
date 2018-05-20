@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select{
+            width: 100px;
+            height: 200px;
+            font-size: 16px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="sell" size="10" multiple>
+    <option >香蕉</option>
+    <option >苹果</option>
+    <option >鸭梨</option>
+    <option >葡萄</option>
+</select>
+<button>>>></button>
+<button><<<</button>
+<button>></button>
+<button><</button>
+
+<select  id="buy" size="10" multiple>
+
+</select>
+
+<script>
+//    需求:点击相应的按钮,转移全部或者单个选项
+//思路:当点击>>>时,获取所有子元素,直接添加到右侧
+    var sellArr = document.getElementById('sell');
+    var buyArr = document.getElementById('buy');
+    btn1=document.getElementsByTagName('button')[0];
+    btn2=document.getElementsByTagName('button')[1];
+    btn3=document.getElementsByTagName('button')[2];
+    btn4=document.getElementsByTagName('button')[3];
+
+    btn1.onclick = function () {
+//        获取左侧标签所有的子元素
+    var arr = sellArr.children;
+//        随着左侧标签数量的减少,数组的长度也减少
+    for(var i=arr.length-1;i>=0;i--){
+//        push()是操作数组的方法,要往标签中添加元素用appendChild.
+        buyArr.appendChild(arr[0]);
+    }
+    };
+
+btn2.onclick = function () {
+//        获取右侧标签所有的子元素
+    var arr = buyArr.children;
+//        随着左侧标签数量的减少,数组的长度也减少
+    for(var i=arr.length-1;i>=0;i--){
+//        push()是操作数组的方法,要往标签中添加元素用appendChild.
+        sellArr.appendChild(arr[0]);
+    }
+}
+
+//2.当点击>或<按钮时,被选择的选项选择移动到另一边
+//思路:对全选的方式添加判断
+    btn3.onclick = function () {
+//        获取左侧标签所有的子元素
+        var arr = sellArr.children;
+        for(var i=arr.length-1;i>=0;i--){
+//            true不能用""括着
+            if(arr[i].selected === true){
+                //        push()是操作数组的方法,要往标签中添加元素用appendChild.
+                buyArr.appendChild(arr[i]);
+            }
+
+        }
+    }
+
+btn4.onclick = function () {
+//        获取左侧标签所有的子元素
+    var arr = buyArr.children;
+    for(var i=arr.length-1;i>=0;i--){
+//            true不能用""括着
+        if(arr[i].selected === true){
+            //        push()是操作数组的方法,要往标签中添加元素用appendChild.
+            sellArr.appendChild(arr[i]);
+        }
+
+    }
+}
+
+
+
+
+
+</script>
+</body>
+</html>

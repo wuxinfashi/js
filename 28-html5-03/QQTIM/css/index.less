@@ -1,0 +1,259 @@
+@charset "UTF-8";
+@import "var";
+/*============reset css===========*/
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 14px;
+  font-family: "Microsoft YaHei", sans-serif;
+  color: #333;
+}
+ul{
+  list-style: none;
+}
+a{
+  color: #333;
+  text-decoration: none;
+}
+/*============model css===========*/
+.qq_nav{
+  height: 150px;
+  width: 100%;
+  background: url("../images/nav_bg.png") repeat-x ;
+  position: absolute;
+  left: 0;
+  top: 0;
+  .warpper{
+    width: 1080px;
+    height: 75px;
+    margin: 0 auto;
+    .logo{
+      width: 100px;
+      height: 75px;
+      background: url("../images/nav_brand.png") no-repeat center;
+      float: left;
+    }
+    .nav{
+      float: left;
+      li{
+        float: left;
+        font-size: 18px;
+        line-height: 75px;
+        margin-left: 20px;
+        a{
+          display: block;
+          padding: 0 20px;
+          &.active{
+            background-color: @timBlue;
+          }
+          &:hover{
+            background-color: @timBlue;
+          }
+        }
+      }
+    }
+    .other{
+      float: right;
+      width: 250px;
+      height: 75px;
+      ul{
+        width: 250px;
+        li{
+          float: right;
+          margin-left: 40px;
+          a{
+            font-size: 14px;
+            text-shadow: 0 0 2px #333;
+            height: 50px;
+            line-height: 50px;
+          }
+        }
+      }
+      p{
+        float: right;
+      }
+    }
+
+    .register{
+      float: right;
+      height: 36px;
+      width: 96px;
+      text-align: center;
+      line-height: 36px;
+      font-size:16px ;
+      background: @timBlue;
+      color: #fff;
+      border-radius: 18px;
+      margin-top: 19px;
+    }
+  }
+}
+
+.qq_banner{
+  height: 880px;
+  background: url("../images/banner-bg.jpg") no-repeat center top;
+  /*因为nav是绝对定位,要让出空间*/
+  padding-top: 150px;
+  img{
+    display: block;
+    margin: 20px auto 0;
+    &:last-child{
+      width: 100%;
+      /*自适应  等比例缩放  图片有这个特殊效果  */
+    }
+  }
+}
+
+.qq_sound{
+  h1{
+    height: 300px;
+    background: url("../images/sound-text.png") no-repeat center/cover;
+  }
+  .bg{
+    height: 500px;
+    background: url("../images/sound-bg.jpg") no-repeat center/cover;
+  }
+  .content{
+    height: 500px;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+    h2{
+      .qq_h2();
+    }
+    p{
+      float: right;
+      width: 500px;
+      text-align: right;
+      padding-top: 50px;
+      font-size: 18px;
+      text-shadow: 0 0 2px #333;
+    }
+    .iphone{
+      position: absolute;
+      left: 0px;
+      //突出去
+      top: -200px;
+      width: 700px;
+      height: 700px;
+      background: url("../images/sound-phone.png") no-repeat center top/cover;
+    }
+  }
+}
+
+.qq_file{
+  .bg{
+    height: 500px;
+    background: url("../images/file-bg.jpg") no-repeat center/cover;
+  }
+  .content{
+    height: 500px;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+    .mac{
+      width: 600px;
+      height: 340px;
+      background: url("../images/file-mac.png") no-repeat center/cover;
+      position: absolute;
+      right: -60px;
+      top: 100px;
+    }
+    h2{
+      .qq_h2();
+      float: left;
+      text-align: left;
+    }
+    p{
+      padding-top: 50px;
+      float: left;
+      width: 500px;
+      text-align: left;
+      font-size: 18px;
+      text-shadow: 0 0 2px #333;
+    }
+  }
+}
+
+.qq_interest{
+  .bg{
+    height: 500px;
+    background: url("../images/interest-bg.jpg") no-repeat center/cover;
+  }
+  .content{
+    .qq_content();
+    h2{
+      .qq_h2();
+    }
+    p{
+      .qq_p();
+    }
+    .phone{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 350px;
+      height: 500px;
+      background: url("../images/interest-phone.png") no-repeat center top/cover;
+    }
+  }
+}
+
+.qq_footer{
+  height: 250px;
+  background: #2a2a2a;
+  font-size: 12px;
+  text-align: center;
+  padding-top: 50px;
+  color: #666;
+  .plats{
+    width: 800px;
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+    a{
+      float: left;
+      background: transparent url(../images/footer.png) no-repeat 10px 0;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      padding-top: 50px;
+      width: 80px;
+      margin: 0 60px;
+      &:hover{
+        color: @timBlue;
+      }
+      &.plmb{
+        background-position: 0 0;
+        &:hover{
+          background-position: 0 -93px;
+        }
+      }
+      &.plpc{
+        background-position: -105px 0;
+        &:hover{
+          background-position: -105px -93px;
+        }
+      }
+      &.plmac{
+        background-position: -210px 0;
+        &:hover{
+          background-position: -210px -93px;
+        }
+      }
+      &.plpad{
+        background-position: -326px 0;
+        :hover{
+          background-position: -326px -93px;
+        }
+      }
+    }
+  }
+}
+
+/*加上视差效果*/
+.qq_sound .bg,.qq_file .bg,.qq_interest .bg{
+  background-attachment: fixed;
+}

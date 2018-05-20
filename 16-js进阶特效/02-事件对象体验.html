@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+//     在触发DOM上的某个事件时，会产生一个事件对象event，这个对象中包含着所有与事件有关的信息。所有浏览器都支持event对象，但支持的方式不同。
+// 比如鼠标操作时候，会添加鼠标位置的相关信息到事件对象中。（类似Date）
+// 普通浏览器支持 event（带参，任意参数）
+// ie 678 支持 window.event（无参，内置）
+// 总结：他是一个事件中的内置对象。内部装了很多关于鼠标和事件本身的信息。
+
+    document.onclick = function (ev) {
+        var event  = event || window.event;
+            console.log(event);
+    }
+    // 兼容性写法:
+    // 不写参数直接使用event;
+    // 写参数，但是为event....var event  = event || window.event;(主要用这种)
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <!--<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>-->
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.structure.min.css">
+    <style>
+        div{
+            font: 12px normal Arial,Helvetica;
+        }
+        #dragdiv{
+            width: 150px;
+            height: 50px;
+            background-color: #eeffee;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        #dropdiv{
+            position: absolute;
+            top: 80px;
+            left: 100px;
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#dragdiv').draggable();
+            $('#dropdiv').droppable({
+                drop:function () {
+                    $('#dropdiv').text("Dropped!");
+                },
+                out:function () {
+                    $('#dropdiv').text("Off and running again...");
+                }
+            }).resizable()/*(可以调整大小)*/
+        })
+    </script>
+</head>
+<body>
+<div id="dropdiv">这是放置区域</div>
+<div id="dragdiv">这是可拖动元素</div>
+</body>
+</html>

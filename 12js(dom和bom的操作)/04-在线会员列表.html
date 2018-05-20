@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    需求:显示所有在线用户
+//    思路:模拟服务器获取数据(数组中装着JSON),获取ul,把ul中的innerHTML获取,创建并赋值到li中
+//    步骤:
+//    1.模拟服务器获取数据(定义数组),通过循环添加元素(定义for循环)
+//数组中有多少元素,我们就创建多少个li标签
+var users = document.getElementById('users');
+var ul = users.firstElementChild || users.firstChild;
+//var ul = div.children[0];
+
+for(i<0;i<user.length;i++){
+    ul.innerHTML += '<li>'+
+                        '<a href="#" target="_blank"> '<img src = "'+users[i].icon+'" alt="'+users[i].name+'">
+                        '<p><a href="#" title="'+users[i].name+'"  target="_blank">'+users[i].name+'</a></p> '+
+                     '</li>';
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

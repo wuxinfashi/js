@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            padding: 100px;
+            margin: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+
+<script>
+    var box = document.getElementsByClassName('box')[0];
+    // clientWidth和cilentHeight(当body调用时,获取可是区域高度和宽度)
+    // 当是盒子调用时,指的是盒子本身的大小
+    // 不包括border和margin
+    // 就是padding+width
+console.log(box.clientWidth);
+    // 就是padding+height
+    console.log(box.clientHeight);
+    // clientTop和clientLeft
+// cilentTop获取的是上border
+console.log(box.clientTop);
+// cilentLeft获取的是左border
+    console.log(box.clientLeft);
+    // cilentX获取的是鼠标距离可视区域左侧的距离(event调用)
+    console.log(box.clientX);
+    // cilentY获取的是鼠标距离可视区域上侧的距离(event调用)
+    console.log(box.clientY);
+
+
+
+</script>
+</body>
+</html>

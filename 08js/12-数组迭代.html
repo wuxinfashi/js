@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+//1.every()方法:对数组中每一项都运行一下函数,如果都返回true,every返回true,如果有一项返回false,则停止遍历,返回false。arr.every(function (item, index, arr) {  })
+
+var arr = ['关云长','张飞','赵子龙','马超','黄忠'];
+
+//every的返回值是一个布尔类型值,而参数是一个回调函数
+/*arr.every(function (item,index,arr) {
+//    item = 'aaa';修改新数组
+    arr[index]= 'aaa';/!*修改原数组*!/
+    console.log(item);
+    console.log(index);
+    console.log(arr);
+    return true;/!*返回添加真值才能打印全部*!/
+})*/
+
+//2.filter()方法:对数组中每一项运行一下函数,对该函数返回结果是true的项,组成新数组
+//var arr = array.filter(function (p1, p2, p3) {  });
+//    console.log(arr);
+
+    var arr1 = arr.filter(function (ele, index, arr) {
+        if(ele.length>2){
+            return true;
+        }
+        return false;
+    })
+    console.log(arr1);
+
+//    3.forEach()方法:遍历数组,不返回任何值
+//    arr.forEach(function (p1, p2, p3) {  })
+
+
+//4.map()方法:对数组中每一项都运行以下函数,返回该函数的结果组成的新数组
+/*var arr = array.map(function (p1, p2, p3) {
+    return "/" + item + '/';
+})*/
+
+//5.some()方法:对数组中每一项都运行以下函数,如果该函数某一项返回true,则some返回true
+/*
+var b = array.some(function (p1, p2, p3) {
+    if(p1 =='ww');{
+        return true;
+    }
+    return false;
+})
+*/
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="#">点击我可以创建一个新窗口</a>
+<a href="#">点击我可以关闭一个新窗口</a>
+<div >点击我跳转百度</div>
+
+
+<script>
+//    打开新窗口
+    var a =document.getElementsByTagName('a')[0];
+    var a2 =document.getElementsByTagName('a')[1];
+    a.onclick = function () {
+        window.open('https://www.baidu.com/','_blank');/*(除了self以外均打开新窗口)*/
+//        window.open('https://www.baidu.com/','_self');
+    }
+//关闭本窗口
+    a2.onclick = function () {
+        window.close();
+    }
+
+//window.location
+/*location相当于浏览器地址栏
+    可以将url解析成独立的片段
+    location对象的属性:
+    href
+    hash            返回url中#后面的内容,包含#
+    host            主机名,包括端口
+    hostname        主机名
+    pathname        url中的路径部分
+    protocol        协议 一般是http或者https
+    search          查询字符串
+    */
+
+var div = document.getElementsByTagName('div')[0];
+    div.onclick = function () {
+//        location.href = "https://www.baidu.com";
+        window.open("https://www.baidu.com","_blank");
+
+    }
+
+
+//    history对象:
+//    后退:
+//    history.back();
+//    history.go(-1)      /*0是刷新*/
+//    前进:
+//    history.forward();
+//    history.go();
+
+
+//    定时器:
+//    1.循环执行(等待时间过去后执行)
+//    var timerId = setInterval(code,interval);
+//    clearInterval(timerId);
+//    间隔时间执行,不是特别准确
+//
+//    定时执行(立即执行)
+//    var timeId = setTimeout(code,interval);
+//    clearTimeout(timerId);
+//
+
+
+</script>
+
+
+
+
+</body>
+</html>

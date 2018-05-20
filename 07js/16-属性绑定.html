@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    绑定属性的方式:
+//    1.对象名.变量
+//    2.对象名[变量]、对象名[值]
+
+
+    var stu = new Object();
+    var aaa = 'age';
+    stu.name = '张三';
+//    stu.aaa =19;不能通过aaa来绑定age
+    stu[aaa]=20;/*可以通过关键字的方式进行绑定*/
+
+    console.log(stu);
+
+//var arr = [1,2,3];
+//arr[0] = 4;
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            margin: 200px auto;
+            font-size: 35px;
+            color: red;
+            padding-left:250px ;
+
+        }
+    </style>
+</head>
+<body>
+<div>
+
+
+</div>
+<script>
+var div = document.getElementsByTagName('div')[0];
+var  timer = setInterval(fn,1);
+//封装成方法,每个固定时间调用一次
+function fn() {
+    var date = new Date();
+    var date2 = new Date('2019/01/01 01:00:00');
+    var c = date2.getTime()-date.getTime();
+//    将总的毫秒值转化为天数
+    var day = parseInt(c/1000/60/60/24);
+//    console.log(day);
+//    计算除去天数以外剩余的小时数
+    var hours =parseInt(c/1000/60/60%24);
+//    console.log(hours);
+    var minute = parseInt(c/1000/60%60);
+    var second = parseInt(c/1000%60);
+    var ms = parseInt(c%1000);
+
+//    问题处理:时间的长度会变,造成画面抖动
+//    问题处理:当所有时间小于10时自动补0,毫秒值补两个0
+    day = day<10?"0"+day:day;
+    hours = hours<10?"0"+hours:hours;
+    minute = minute<10?"0"+minute:minute;
+    second = second<10?"0"+second:second;
+    if(ms<10){
+        ms = "00" + ms;
+    }
+
+    else if(ms<100){
+        ms="0"+ms;
+    }
+
+
+//    把时间转换成字符串赋值给div
+    div.innerHTML = "距离2019年1月1日1时还有:"+day+"天"+hours+"时"+minute+"分"+second+"秒"+ms+"毫秒";
+
+
+}
+
+
+
+</script>
+</body>
+</html>

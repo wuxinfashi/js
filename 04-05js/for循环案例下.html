@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    优化前
+/*    var money = 10000;
+    for(i=1;i<=5;i++){
+        money = money+money*0.003;
+    }
+    console.log(money);*/
+//优化后：
+/*    var money = 10000;
+var rote = 0.003;
+    for(i=1;i<=5;i++){
+        money *=1+rote;
+    }
+    console.log(money);*/
+
+//斐波那契数列：1，1，2，3，5，8，13，21。。。。
+/*步骤：
+1.定义两个变量和一个中间值。
+2.利用循环交换变量。
+3.直接打印n2。*/
+    var n1 =1;
+    var n2 = 1;
+    var temp = 0;
+    for (var i=3;i<=12,i++){
+        temp = n2;
+        n2 = n1+n2;
+        n1 = temp;
+    }
+console.log(n2);
+</script>
+</body>
+</html>

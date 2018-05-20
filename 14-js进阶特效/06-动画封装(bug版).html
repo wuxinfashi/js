@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            height:200px;
+            background-color: #ccc;
+            position: relative;
+            padding:5px;
+
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color:pink ;
+            position: absolute;
+            left: 0;
+        }
+        button{
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<button>移动200</button>
+<button>移动400</button>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+
+
+<script>
+    var btnArr = document.getElementsByTagName('button');
+    var box2 = document.getElementsByClassName('box2')[0];
+    var timer = null;
+
+    btnArr[0].onclick = function () {
+        animate(200);
+    }
+    btnArr[1].onclick = function () {
+        animate(400);
+    }
+
+function animate(target) {
+    timer= setInterval(function () {
+//            盒子自身的位置+步长
+        box2.style.left = box2.offsetLeft + 10 +"px";
+//            盒子移动到200像素然后停止
+        if(box2.offsetLeft === target){
+            clearInterval(timer);
+        }
+    },30)
+}
+
+
+
+
+
+/*
+//未封装:
+//    移动盒子:
+    btnArr[0].onclick = function () {
+        timer= setInterval(function () {
+//            盒子自身的位置+步长
+            box2.style.left = box2.offsetLeft + 10 +"px";
+//            盒子移动到200像素然后停止
+            if(box2.offsetLeft === 200){
+                clearInterval(timer);
+            }
+        },30)
+    }
+
+
+    //    移动盒子:
+    btnArr[1].onclick = function () {
+        timer= setInterval(function () {
+            if(box2.offsetLeft === 400){
+//                盒子移动到400像素然后停止
+                clearInterval(timer);  }
+//            盒子自身的位置+步长
+            box2.style.left = box2.offsetLeft + 10 +"px";
+        },30)
+    }
+*/
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

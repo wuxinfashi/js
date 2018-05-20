@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var $inp = $("input:eq(0)");
+            var $ckb = $("input:eq(1)")
+            var $btn = $("button");
+
+
+            $btn.click(function () {
+                // dom方法的属性绑定无效
+                // $inp.title = 111;
+                // console.log($inp.title);
+
+                // jquery的绑定方法
+                $inp.attr("title",100);//单个绑定
+                $inp.attr({"title":110,"class":"inp","hhh":"123"});//多个用json绑定
+                // jquery的属性获取
+                console.log($inp.attr("title"));
+                // jquery移除属性
+                $inp.removeAttr("hhh");
+//                 form中的特殊属性用prop()
+//                 注意：checked、selected、disabled要使用.prop()方法。
+//                  prop方法通常用来影响DOM元素的动态状态，而不是改变的HTML属性。例如：input和button的disabled特性，以及checkbox的checked特性。
+//                  细节参考：http://api.jquery.com/prop/
+//                  案例：表格案例全选反选；
+                $ckb.prop("checked",true);
+
+
+
+
+            })
+
+
+
+
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+<button>绑定</button>
+<input type="text">
+<input type="checkbox">
+</body>
+</html>

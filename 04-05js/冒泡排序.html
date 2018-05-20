@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    冒泡排序
+//    每轮比较次数n-1次,需要比较n-1轮
+//第一个for循环控制轮数,第二个for循环控制次数
+//1.从大到小
+/*var arr = ['10','90','20','30','50'];
+var temp ;
+for(i=0;i<arr.length;i++){
+    for(j=0;j<arr.length-1;j++){
+        if(arr[i]>arr[j]){
+            temp = arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+     }
+    }
+}
+console.log(arr);*/
+
+//    从小到大
+var arr = ['10','90','20','30','50'];
+var temp  ;
+/*for(i=0;i<arr.length-1;i++){
+    for(j=0;j<arr.length-1;j++){
+        if(arr[i]<arr[j]){
+            temp = arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+    }
+}
+console.log(arr);*/
+
+//    简化版
+/*for (var i=0;i<arr.length-1;i++){
+    for (var j =0;j<arr.length-1;j++){
+//        从小到大排列顺序,如果前面比后面大,那么交换位置
+        if(arr[j]>arr[j+1]){
+            temp = arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        }
+    }
+}
+console.log(arr);*/
+
+//最终版(通过布尔值来传递是否完成排序
+for (var i=0;i<arr.length-1;i++){
+//    每次初始化bool变量为true
+    var bool = true;
+    for (var j =0;j<arr.length-1;j++){
+//        如果提前比较完毕,结束比较.(判断:如果本次比较没有移动任何元素)
+        if(arr[j]>arr[j+1]){
+            temp = arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+            bool = false;
+        }
+        if(bool=true){
+            break;
+        }
+    }
+}
+console.log(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

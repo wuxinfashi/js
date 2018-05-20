@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: url("i1.jpg") no-repeat;
+        }
+        .box{
+            height: 170px;
+            padding-top: 30px;
+            background: rgba(255,255,255,0.3);
+            text-align: center;
+
+        }
+        img{
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="i1.jpg" width="200px">
+    <img src="i2.jpg" width="200px">
+    <img src="i3.jpg" width="200px">
+</div>
+
+<script>
+//    需求:点击图片,修改页面的背景图片
+    var box = document.getElementsByClassName('box')[0];
+    var body =document.body;/*获取body标签*/
+    var imgArr = box.children;
+//    var chosenImg =
+    for(var i=0;i<imgArr.length;i++){
+        imgArr[i].index = i;
+        imgArr[i].onclick = function () {
+            body.style.backgroundImage = "url(i"+(this.index+1)+".jpg)" ;
+//            body.style.backgroundImage = "url("+this.src+")" ;
+
+        }
+    }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

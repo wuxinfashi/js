@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        //量词  （   *+?   {}  ）
+
+        //a的个数要 >=0
+/*       console.log(/^a*$/.test("b"));//false
+       console.log(/^a*$/.test(""));//true
+       console.log(/^a*$/.test("a"));//true
+       console.log(/^a*$/.test("aa"));//true
+       console.log(/^a*$/.test("aaa"));//true
+       console.log(/^a*$/.test("aaaa"));//true
+       console.log(/^a*$/.test("aaaab"));//false
+       console.log(/^a*b$/.test("aaaab")); //true
+       */
+
+
+        //a的个数要 >=1
+/*       console.log(/^a+$/.test("b"));//false
+       console.log(/^a+$/.test(""));//false
+       console.log(/^a+$/.test("a"));//true
+       console.log(/^a+$/.test("aa"));//true
+       console.log(/^a+$/.test("aaa"));//true
+       console.log(/^a+$/.test("aaaa"));//true
+       console.log(/^a+$/.test("aaaab"));//false
+       */
+
+
+        //a的个数要么0，要么1；
+/*       console.log(/^a?$/.test("b"));//false
+       console.log(/^a?$/.test(""));//true
+       console.log(/^a?$/.test("a"));//true
+       console.log(/^a?$/.test("aa"));//false
+       console.log(/^a?$/.test("aaa"));//false
+       console.log(/^a?$/.test("aaaa"));//false
+       console.log(/^a?$/.test("aaaab"));//false
+       */
+
+
+        //{n} 一个参数，循环n次。
+        //{n,} 一个参数，循环>=n次。
+        //{n,m} 一个参数，循环n次到m次。(包左包右)
+/*
+       console.log(/^a{1}$/.test("a"));//true
+       console.log(/^a{1,}$/.test("aa"));//true
+       console.log(/^a{1,4}$/.test("aaa"));//true
+       console.log(/^a{1,4}$/.test("aaaa"));//true
+       console.log(/^a{1,4}$/.test("aaaaa"));//false
+*/
+
+
+        //括号提高运算优先级，| 前后有一个符合就可以(至少满足一个,字符顺序不可以打乱,可以多不可以少)
+       console.log(/(abc)|(xyz)/.test("ab"));//false
+       console.log(/(abc)|(xyz)/.test("abcd"));//true
+       console.log(/(abc)|(xyz)/.test("acbd"));//false
+       console.log(/(abc)|(xyz)/.test("xy"));//false
+       console.log(/(abc)|(xyz)/.test("xyzaaa"));//true
+       console.log(/(abc)|(xyz)/.test("abxy"));//false
+
+
+    </script>
+</body>
+</html>

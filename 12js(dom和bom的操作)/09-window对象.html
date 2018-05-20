@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+//    window是bom的顶级对象,通常情况下可以省略
+//    window的方法:
+/*    alert
+    prompt()
+    confirm()
+    */
+//    全局变量也是window的一个属性
+    var aaa =1;
+    alert(aaa === window.aaa);
+
+//    自定义函数也是window的一个方法
+    function fn() {
+        console.log(1);
+        console.log(1);
+        console.log(1);
+    }
+    console.log(window.fn);
+
+//window.open(url,target,param)
+/*url:要打开的地址
+    target新窗口的位置 (_blank _self _parent(父框架))
+    param新窗口的设置
+    返回值,新窗口的句柄*/
+
+//window.close() 关闭窗口
+//新窗口.moveTo(5,5) 新窗口.moveBy()
+//新窗口resizeTO()   window.ressizeBy()
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

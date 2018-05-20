@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #000;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    人生自古谁无死,留取丹心照汗青
+    人生自古谁无死,留取丹心照汗青
+    人生自古谁无死,留取丹心照汗青
+    人生自古谁无死,留取丹心照汗青
+    人生自古谁无死,留取丹心照汗青
+</div>
+
+<script>
+    var div = document.getElementsByTagName('div')[0];
+
+    console.log(div.scrollWidth);/*(不包括边框)(包括padding不包括margin)*/
+//    如果内容超出盒子,高度是文字内容的高度.如果不超出盒子的高度,则为盒子本身的高度
+//    IE8一下,不包括IE8为盒子本身内容的高度
+    console.log(div.scrollHeight);/*(不包括边框)(包括padding不包括margin)*/
+</script>
+</body>
+</html>

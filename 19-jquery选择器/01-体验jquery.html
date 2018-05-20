@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+            display: none;
+        }
+    </style>
+    <script src="../外部JS/jquery-1.11.1.js"></script>
+    <script>
+    $(document).ready(function () {
+       var $JQbtn  =$('button'); //根据标签名获取元素
+         var $JQdiv = $('div');
+         // 绑定
+        $JQbtn.click(function () {
+            // $JQdiv.show(1000);//显示盒子
+            // $JQdiv.html("明日中秋!!");//设置内容
+            // 链式编程
+            $JQdiv.show(500).html(111);
+
+        });
+    });
+    </script>
+</head>
+<body>
+
+<button>显示盒子和设置内容</button>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+
+
+
+</body>
+</html>

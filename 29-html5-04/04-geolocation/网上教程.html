@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html,#baiduMap {width: 90%;height: 90%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
+    <!-- baiduMap api -->
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=	0A5bc3c4fb543c8f9bc54b77bc155724"></script>
+</head>
+<body>
+<div id="baiduMap" class="col-md-6"></div>
+<!-- baiduMap -->
+<script type="text/javascript">
+    var map = new BMap.Map("baiduMap");  //创建Map实例
+    var point = new BMap.Point(114.419915,30.513719);  //创建point位置
+    map.centerAndZoom(point, 19);  //设置地图中心点及缩放级别
+    map.addControl(new BMap.MapTypeControl());  //添加地图类型控件
+    var marker = new BMap.Marker(point);  //创建一个Marker点
+    map.addOverlay(marker);  //将Marker点覆盖到地图上
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE);  //使Marker点跳动起来
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>
+</body>
+</html>

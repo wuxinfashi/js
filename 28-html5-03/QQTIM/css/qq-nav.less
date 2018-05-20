@@ -1,0 +1,73 @@
+@charset "UTF-8";
+.qq_nav{
+  height: 150px;
+  width: 100%;
+  background: url("../images/nav_bg.png") repeat-x ;
+  position: absolute;
+  left: 0;
+  top: 0;
+  .warpper{
+    width: 1080px;
+    height: 75px;
+    margin: 0 auto;
+    .logo{
+      width: 100px;
+      height: 75px;
+      background: url("../images/nav_brand.png") no-repeat center;
+      float: left;
+    }
+    .nav{
+      float: left;
+      li{
+        float: left;
+        font-size: 18px;
+        line-height: 75px;
+        margin-left: 20px;
+        a{
+          display: block;
+          padding: 0 20px;
+          &.active{
+            background-color: @timBlue;
+          }
+          &:hover{
+            background-color: @timBlue;
+          }
+        }
+      }
+    }
+    .other{
+      float: right;
+      width: 250px;
+      height: 75px;
+      ul{
+        width: 250px;
+        li{
+          float: right;
+          margin-left: 40px;
+          a{
+            font-size: 14px;
+            text-shadow: 0 0 2px #333;
+            height: 50px;
+            line-height: 50px;
+          }
+        }
+      }
+      p{
+        float: right;
+      }
+    }
+
+    .register{
+      float: right;
+      height: 36px;
+      width: 96px;
+      text-align: center;
+      line-height: 36px;
+      font-size:16px ;
+      background: @timBlue;
+      color: #fff;
+      border-radius: 18px;
+      margin-top: 19px;
+    }
+  }
+}

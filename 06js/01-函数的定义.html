@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    1.函数不调用不执行 2.函数调用无关前后顺序
+//执行方法:函数名()
+ha();
+function ha() {
+    a=1;
+    b=2;
+    var sum;
+    sum = a + b;
+    alert(sum);
+
+}
+ha();
+
+function getSum() {
+    var sum = 0;
+    for (var i =1;i<100;i++){
+        sum += i;
+    }
+
+}
+getSum();
+console.log(sum);
+
+
+
+
+
+
+</script>
+</body>
+</html>

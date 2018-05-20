@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    需求:输出某年那月某日,是这一年的第几天
+//    四年一闰,百年不闰,四百年再闰
+//    步骤:
+//    1.判断是否闰年
+
+console.log(isRN(100));
+console.log(isRN(200));
+console.log(isRN(300));
+console.log(isRN(400));
+console.log(isRN(2016));
+console.log(isRN(2015));
+
+
+function isRN(year) {
+    if(year %4 ===0 && year % 100!==0 || year % 400===0 ){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+//    2.求天数:
+//        1.把每月天数组成一个数组,不包含闰年.
+//        2.如果是闰年,而且超过二月,直接在天数上+1天.
+
+    function getDays(year,month,day) {
+        var arr = [31,28,31,30,31,30,31,31,30,31,30,31];
+//        把输入月份之前的天数放入到day中(不包含本月)
+        for(var i=0;i<month-1;i++){
+//            输入的月份当做索引值用,要把月份减1,并且不能相等.
+            day = day + arr[i];
+            }
+            if(isRN(year) && month>2){
+                day =day +1;
+        }
+        return day;
+    }
+console.log(getDays(2015,3,1));
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

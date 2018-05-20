@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //构造函数中的this就是实例对象
+    // 原型对象中的方法中的this就是实例对象
+    function Person(age) {
+        this.age=age;
+        console.log(this);
+    }
+
+    Person.prototype.eat = function () {
+        console.log(this);
+        console.log('你吃了吗');
+    }
+    function Student() {
+
+    };
+
+    Student.prototype.study = function () {
+        console.log('就是天天学习如何敲代码');
+    }
+
+    // Student.prototype = new Person();
+    var student = new Student();
+    console.log('学生说');
+    // student.eat();
+    // 当Student.prototype = new Person();后会报错,因为原型的指向改变了
+    student.study();
+
+    console.log('人说:')
+    var per = new Person(10);
+    per.eat();
+    console.log(per);
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

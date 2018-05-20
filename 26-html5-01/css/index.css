@@ -1,0 +1,408 @@
+/*公用样式*/
+    .go{
+        width: 100px;
+        height: 100px;
+        border-radius:50% ;
+        position: fixed;
+        right: 30px;
+        top: 30px;
+        z-index: 100;
+    }
+    .more{
+        position: fixed;
+        right: 60px;
+        bottom: 80px;
+        z-index: 100;
+        animation: more 0.3s linear infinite alternate;
+
+    }
+
+    /*内容容器*/
+    .content{
+        width: 900px;
+        height: 600px;
+        background: rgba(0,0,0,0.1);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -450px;
+    }
+
+    /*布局:使用定位 动画:使用位移*/
+    /*第一屏*/
+
+    .screen01{
+        background: url("../images/01-bg.png") no-repeat center bottom;
+    }
+    .screen01 .goods{
+        text-align: center;
+        margin-top: 230px;
+
+    }
+    .screen01 .sofa{
+        position: absolute;
+        left: 230px;
+        top: 150px;
+        animation: sofa01 0.8s linear infinite alternate;
+
+
+    }
+    .screen01 .fly{
+        position: absolute;
+        right: -50px;
+        top: 20px;
+        /*调用fly01动画 每1s执行一次 线性 一直执行 循环播放*/
+        animation: fly01 1s linear infinite alternate;
+    }
+
+    /*由于css动画性能更好所以使用css来实现动画*/
+    /*第一屏动画*/
+    /*1.定义动画序列*/
+    @keyframes fly01 {
+        from{
+            /*向上移动*/
+            transform: translateY(-30px);
+        }
+        to{
+            transform: translateY(30px);
+        }
+    }
+
+    @keyframes more {
+     from {
+            transform: translateY(-10px);
+        }
+        to {
+            transform: translateY(10px);
+     }
+    }
+
+    @keyframes sofa01{
+        from{
+           transform: translateY(-20px);
+        }
+        to{
+           transform: translateY(20px);
+        }
+    }
+
+/*    循环播放备选方案:
+@keyframes fly01 {
+    from{
+        !*向上移动*!
+        transform: translateY(-50px);
+    }
+    50%{
+        transform: translateY(50px);
+    }
+    to{
+        transform: translateY(-50px);
+    }
+}*/
+
+    /*第二屏*/
+    /*只有块级元素才能使用位移动画*/
+    /*属性设置:*/
+    .screen02{
+        background: url("../images/02-bg.png") no-repeat center bottom;
+    }
+    .screen02 .goods{
+        position: absolute;
+        left: 50%;
+        /*图片的宽度:*/
+        margin-left: -220px;
+        bottom: 210px;
+        transform-origin: right bottom;
+        /*相当于把这个元素隐藏:*/
+        transform: scale(0);
+    }
+
+    .screen02 .sofa{
+        transform: scale(0.5);
+        position: absolute;
+        left: 292px;
+        top:132px;
+        opacity: 0;
+        z-index: 1001;
+    }
+
+    .screen02 .input{
+        position: absolute;
+        right: 171px;
+        top: 120px;
+        /*右上角时候的状态:transform: scale(0.7);*/
+        /*中心时候的状态:transform: translate(-180px,130px);*/
+        /*最右边时候的状态:transform: translate(2000px,130px);*/
+        /*默认转换的原点为中心*/
+        /*现在要求转换原点在右上角*/
+        transform-origin: right top;
+        opacity: 0;
+    }
+
+    .screen02 .search{
+
+    }
+
+    .screen02 .key{
+        position: absolute;
+        left: 100px;
+        top: 4px;
+        opacity: 0;
+    }
+
+    .screen02 .text{
+        text-align: center;
+    }
+    .screen02 .text01{
+
+    }
+
+    .screen02 .text02{
+        position: absolute;
+        opacity: 0;
+    }
+
+    /*第二屏的动画:*/
+    /*文字1消失,文字2出现*/
+    .screen02.now .text01{
+        position: absolute;
+        opacity: 0;
+    }
+    .screen02.now .text02{
+        position: static;
+        opacity: 1;
+        transition: opacity 1s;
+    }
+    /*1.搜索框在右边动画的出来 */
+    /*2.在显示器中间停留  显示关键字*/
+    /*3.商品列表动画显示  搜索框动画位移到右上角*/
+
+    /*整改搜索框和文字一起动:*/
+    .screen02.now .input{
+        /*动画播放完成状态控制  默认属性backwards(回到起点) forwards(保持)*/
+        animation: input02 3s linear forwards;
+    }
+    .screen02.now .input .key{
+        /*把key显示出来:*/
+        opacity: 1;
+        /*transition是过渡,每个节点都延迟1s执行*/
+        transition: all 1s linear 1s;
+    }
+    .screen02.now .goods{
+        /*none 清空所有转换属性,恢复原状*/
+        transform: none;
+        transition: all 1s linear 2s;
+    }
+
+    @keyframes input02 {
+        /*四个节点控制3个动画过程*/
+        0%{
+            /*初始化动画的状态:*/
+            opacity: 1;
+            transform: translate(2000px,130px);
+        }
+        33%{
+            transform:translate(-180px,130px);
+        }
+        66%{
+            transform:translate(-180px,130px);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(0.7);
+        }
+    }
+    /*沙发做动画,当离开第二屏*/
+    .screen02.leaved .sofa{
+        animation: sofa02 1s linear ;
+    }
+    @keyframes sofa02 {
+        from{
+            opacity: 1;
+        }
+        to{
+            opacity: 1;
+            transform: translate(-80px,700px);
+        }
+    }
+
+
+
+
+
+    /*第三屏:*/
+    .screen03{
+        background: url("../images/03-bg.png") no-repeat center bottom;
+    }
+
+    .screen03 .sofa{
+        position: absolute;
+        left: 212px;
+        top: 180px;
+        display: none;
+    }
+    .screen03 .change{
+        position: absolute;
+        right: 115px;
+        bottom: 170px;
+    }
+    /*将第二张图片隐藏:*/
+    .screen03 .change img:last-child{
+        position: absolute;
+        opacity: 0;
+    }
+    .screen03 .cart{
+        position: absolute;
+        right: 192px;
+        bottom: 100px;
+}
+    .screen03 .cart img:last-child{
+        position: absolute;
+        opacity: 0;
+    }
+    .screen03.now .change img:first-child{
+        display: none;
+    }
+    .screen03.now .change img:last-child{
+        position: static;
+        opacity: 1;
+        transition: all 1s linear;
+    }
+    .screen03.now .cart img:first-child{
+        display: none;
+    }
+    .screen03.now .cart img:last-child{
+        position: static;
+        opacity: 1;
+        transition: all 1s linear;
+    }
+    .screen03.now .sofa{
+        display: block;
+        z-index: 1001;
+    }
+    .screen03.leaved .sofa{
+        /*1.组合写法  多个转换属性之间空格  transform:rotate() translateX() skew() scale()*/
+        /*2.如果你先旋转  那么坐标轴也会旋转(坐标轴基于图片自身)*/
+        /*3. 最好是先位移在旋转*/
+    animation: sofa03 1s linear;
+    }
+    @keyframes sofa03 {
+        from{}
+        to{
+            /*顺时针旋转为正:*/
+            transform: translate(190px,666px) rotate(45deg);
+        }
+    }
+
+    /*第四屏布局:*/
+.screen04{
+    background: url("../images/04-bg.png") no-repeat center bottom;
+}
+.screen04 .cloud{
+    position: absolute;
+    left: -400px;
+    top: -50px;
+    animation: cloud04 20s linear infinite alternate;
+}
+@keyframes cloud04 {
+    from{
+
+    }
+    to{
+        transform: translateX(1000px);
+    }
+}
+.screen04 .text{
+    text-align: center;
+    margin-top: 120px;
+}
+.screen04 .text img:last-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen04 .text.show img:first-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen04 .text.show img:last-child{
+    position: static;
+    opacity: 1;
+    transition: all 1s linear;
+}
+
+.screen04 .cart{
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1002;
+}
+.screen04 .sofa{
+    position: absolute;
+    top: 200px;
+    left: 420px;
+    transform: rotate(45deg);
+    /*display: none;*/
+    opacity: 0;
+}
+.screen04 .address{
+    position: absolute;
+    width: 283px;
+    height: 270px;
+    /*left是基于父盒子宽度的*/
+    left: 50%;
+    /*css3的居中 translate是基于本身尺寸*/
+    transform: translateX(-50%);
+    bottom: 150px;
+    display: none;
+}
+.screen04 .address img:last-child{
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    /*css3的居中 基于本身*/
+    transform: translateX(-50%);
+    z-index: 1;
+    display: none;
+}
+
+
+/*1.旧时代的方法:掐时间  做延时  完成动画的衔接*/
+/*2.jquery的动画  $('dom').animate(property,duration,speed,callback) */
+/*执行的速度:speed  (swing linear)  swing:慢快慢 liner:匀速*/
+/*3.能不能监听到动画或者过度的结束*/
+/*4.css3当中 过渡完毕 transitionend  动画完毕 animationend*/
+.screen04.now .sofa{
+    opacity: 1;
+    transform: translateX(1000px);
+    transition: transform 3s;
+}
+.screen04.now .cart{
+    transition: all 3s;
+    transform: translateX(1000px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

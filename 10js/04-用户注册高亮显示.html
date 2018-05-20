@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error{
+            border:2px solid red;
+        }
+        .right{
+            border:2px solid #91B81D;
+        }
+    </style>
+</head>
+<body>
+账号:<input type="text" id="zhanghao"><br><br>
+密码:<input type="password" id="mima" onblur="fn(this)"><!--(使用行内式必须写上this来传递参数,否则在fn中无法调用this)-->
+
+
+<script>
+//    需求:失去焦点的时候判断input按钮中的值如果账号或密码在6-12个字符之间则通过,否则报错
+//如果需要添加文字提示则添加p标签,如果错误就显示,对的不显示
+    var zhanghao = document.getElementById('zhanghao');
+   
+    zhanghao.onblur = function () {
+//        console.log(this.value);
+        if(this.value.length>=6&&this.value.length<13){
+            this.className ='right';
+        }
+        else {
+            this.className ='error';
+        }
+    }
+
+//    html在行内式调用function时先调用window再调用fn
+//只有传递的this才是指标签本身
+function fn(aaa) {
+    if(aaa.value.length>=6&&aaa.value.length<13){
+        aaa.className ='right';
+    }
+    else {
+        aaa.className ='error';
+    }
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

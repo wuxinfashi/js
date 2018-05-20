@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="IMAG1389.jpg"  class="box" title="图片" alt="京东狗" id="aaa">
+
+<script>
+window.onload = function () {
+//    属性、赋值获取的两种方式
+//    1.元素节点.属性或者元素节点[]
+//    2.元素节点.方法()
+//    1.例子:
+    var eleNode = document.getElementsByTagName('img')[0];
+    console.log(eleNode.src);
+    console.log(eleNode.tagName);
+    console.log(eleNode['title']);
+    console.log(eleNode['className']);
+    console.log(eleNode['alt']);
+
+//    2.例子
+
+    console.log(eleNode.getAttribute('id'));
+    eleNode.setAttribute('id','你好');
+    eleNode.setAttribute('ccc','ddd');/*在标签中添加属性*/
+    console.log(eleNode.getAttribute('id'));
+//    eleNode.removeAttribute('id');
+
+
+}
+
+
+</script>
+</body>
+</html>

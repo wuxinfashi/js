@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var num =1;
+    var timer1=setInterval(
+        function () {
+            console.log(num);
+            num++;
+//            用等于几判断达不到等于的那个数
+//            当等于10的时候跳出,不执行setInterval
+            if(num===10){
+                clearInterval(timer1);
+            }
+        },100
+    );
+
+
+
+
+</script>
+</body>
+</html>

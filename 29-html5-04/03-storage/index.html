@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin-left: 300px;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li,div{
+            width: 250px;
+            padding: 10px 0;
+            margin-left: 10px;
+            border-bottom: 1px dashed #ccc;
+            height: 20px;
+        }
+        a{
+            float: right;
+        }
+        input{
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<input type="search" placeholder="输入搜索关键字"/>
+<input type="button" value="搜索"/>
+<div><a href="javascript:;">清空搜索记录</a></div>
+<ul>
+    <li>没有搜索记录</li>
+    <li><span>手机</span><a href="javascript:;">删除</a></li>
+    <li><span>手机</span><a href="javascript:;">删除</a></li>
+    <li><span>手机</span><a href="javascript:;">删除</a></li>
+    <li><span>手机</span><a href="javascript:;">删除</a></li>
+    <li><span>手机</span><a href="javascript:;">删除</a></li>
+</ul>
+
+<script>
+    // 需求:
+    // 1.打开页面默认渲染
+    // 2.显示搜索历史,并在再次搜索的时候追加
+    // 3.清理搜索历史记录功能
+
+    // 实现:
+    // 1.使用json数据储存历史搜索记录
+    // 2.预设一个key historylist
+
+    $(function () {
+        // 1.默认根据历史记录渲染历史列表
+        // 2.点击搜索的时候更新历史记录,渲染列表
+        // 3.点击删除,删除对应的历史记录
+        // 4.点击清空的时候,清空所有历史记录,渲染列表
+
+        // 数据格式列表 存的是json格式的数组(注意空数组需要包括在''里面.因为需要转换)
+        var historyListJson = localStorage.getItem('historyList') || '[]';
+        var historylistArr = JSON.parse(historyListJson);
+
+        // 只有数组可以使用forEach方法
+        // 初始化页面:
+        var render = function () {
+            var html = '';
+            // $.each(i,item) for() for in
+            // 原生js和jquery中的顺序相反原生的是(value,key),js中是(key,value)
+            historylistArr.forEach(function (item,i) {
+                html += '<li><span>'+item+'</span><a data-index="'+i+'" href="javascript:;">删除</a></li>';
+                // 防止没有历史搜索记录:
+            });
+            html = html || '<li>没有搜索记录</li>';
+            $('ul').html(html);
+        };
+        render();
+
+        // 搜索后追加历史记录:
+        // 使用了属性选择器
+        $('[type="button"]').on('click',function () {
+            var key =$.trim($('[type="search"]').val());
+            if(!key){
+                alert('请输入搜索关键字');
+                return false;
+            }
+            // 追加一条历史,并将追加的历史渲染
+            historylistArr.push(key);
+            // 追加后保存到本地储存中：
+           localStorage.setItem('historyList',JSON.stringify(historylistArr));
+           // 重新渲染页面:
+            render();
+            // 重置搜索框:
+            $('[type=search]').val('');
+        })
+
+        // 点击删除按钮删除对应的历史记录:
+        // 动态生成的按钮,绑定ul,监听a链接
+        $('ul').on('click','a',function () {
+            var index = $(this).data('index');
+            /*删除*/
+            historylistArr.splice(index,1);
+            /*保存*/
+            localStorage.setItem('historyList',JSON.stringify(historylistArr));
+            /*渲染一次*/
+            render();
+        });
+
+        /*4.点击清空的时候清空历史记录渲染列表*/
+        $('div a:contains("清空搜索记录")').on('click',function () {
+            /*清空*/
+            historylistArr = [];
+            /*慎用  清空网上的所有本地存储*/
+            //localStorage.clear();
+            //localStorage.removeItem('historyList');
+            localStorage.setItem('historyList','');
+            render();
+        });
+
+    })
+
+</script>
+</body>
+</html>

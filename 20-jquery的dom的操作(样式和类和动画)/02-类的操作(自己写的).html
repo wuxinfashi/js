@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            background-color:black ;
+        }
+        .red{
+            background: red;
+        }
+        .green{
+            background: green;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+/*      1.添加类样式：
+(addClass) 为指定元素添加类className
+        $(selector).addClass(“liItem”);
+        注意：此处类名不带点，所有类操作的方法类名都不带点
+        2.移除类样式：
+removeClass(className) 为指定元素移除类 className
+        $(selector).removeClass(“liItem”);
+        $(selector).removeClass(); 不指定参数，表示移除被选中元素的所有类
+        3.判断有没有类样式：
+hasClass(calssName) 判断指定元素是否包含类 className
+        $(selector).hasClass(“liItem”);
+        此时，会返回true或false
+        4.切换类样式：
+toggleClass(className) 为指定元素切换类 className，该元素有类则移除，没有指定类则添加。
+$(selector).toggleClass(“liItem”);
+        注意点：
+		操作类样式的时候，所有的类名，都不带点（.）*/
+
+        $(function () {
+            $("button").eq(0).click(function () {
+                console.log($("div").css("backgroundColor"));
+                if($("div").hasClass("red")){
+                    $("div").removeClass("red").addClass("green");
+                }
+                else if($("div").css("backgroundColor")==="rgb(0, 0, 0)" ||"rgb(0, 128, 0)"){
+                    $("div").removeClass("green").addClass("red");
+                    console.log($("div").hasClass("red"));
+                }
+
+
+            })
+
+            $("button").eq(1).click(
+                function () {
+                    $("div").removeClass();
+                }
+            )
+
+
+
+
+
+
+
+        })
+
+    </script>
+</head>
+<body>
+<button>变色</button>
+<button>恢复</button>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--使用prototype拓展对象-->
+    <script>
+        function Person(personName) {
+            this.name = personName;
+            this.info = 'This Person is called '+this.name;
+            this.showInfo = function () {
+                alert(this.info);
+            }
+        }
+        var person1 = new Person('Adam');
+        var person2 = new Person('Eve');
+        Person.prototype.sayHello = function () {
+            alert(this.name + ' says hello');
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="show info on Adam" onclick="person1.showInfo()">
+<input type="button" value="show info on Eve" onclick="person2.showInfo()">
+<input type="button" value="say hello Adam" onclick="person1.sayHello()">
+<input type="button" value="say hello Eve" onclick="person2.sayHello()">
+
+
+
+</body>
+</html>

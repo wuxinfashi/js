@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        // 复制节点:.clone(bool);默认复制节点和值,bool为true时复制功能
+//         Events[,deepEvents]Boolean,BooleanV1.5
+//         1:一个布尔值（true 或者 false）指示事件处理函数是否会被复制。
+// 2:一个布尔值，指示是否对事件处理程序和克隆的元素的所有子元素的数据应该被复制。
+
+        $(document).ready(function () {
+            $("button").eq(0).click(function () {
+                //复制节点：  clone();
+                var newUl  = $(".box ul").clone();
+                $(".box").append(newUl);
+            })
+            $("button").eq(1).click(function () {
+                //复制事件：  clone(true);
+                var newBtn  = $("button:eq(0)").clone(true);
+                $(this).append(newBtn);
+            })
+            $("button").eq(2).click(function () {
+                //复制事件：  clone(true);
+                var newBtn  = $("button:eq(0)").clone();
+                $(this).append(newBtn);
+            })
+        });
+
+    </script>
+</head>
+<body>
+    <button>复制节点</button>
+    <button>复制按钮</button>
+    <button>复制按钮(但不能使用)</button>
+
+    <div class="box">
+        <ul>
+            <li>我是土著li1</li>
+            <li>我是土著li2</li>
+            <li>我是土著li3</li>
+            <li>我是土著li4</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<button>运动到400</button>
+<div></div>
+<script>
+//    京东有用到
+//主要用到的三个函数:
+//    Math.ceil()
+//    Math.floor()
+//    Math.round()
+
+//    缓动:如何缓动?步长越来越小
+//    公式:盒子位置 = 盒子本身位置 + (目标位置-盒子本身位置)/10(永远只能接近不能到达)
+var btn = document.getElementsByTagName('button')[0];
+var div = document.getElementsByTagName('div')[0];
+btn.onclick = function () {
+    var target = 400;
+    var timer = setInterval(function () {
+        var step = (target - div.offsetLeft)/10;
+        //    动画原理:
+        div.style.left = div.offsetLeft + step +"px";
+        if(step<5){div.style.left = target+"px";
+        clearInterval(timer);
+        }
+    },30);
+
+}
+
+
+</script>
+</body>
+</html>

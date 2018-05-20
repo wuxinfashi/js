@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    console.log("-------预定义类--------");
+    // /./运行包含换行和回车,但不需要只包含换行或者回车
+ //    .[^\n\r]	除了换行和回车之外的任意字符（“”不行）
+ //     \d	[0-9]		数字字符
+ //    \D	[^0-9]	   非数字字符
+ //
+ // \s	[ \t\n\x0B\f\r]	 空白字符
+ // \S	[^ \t\n\x0B\f\r]	 非空白字符
+ //
+ // \w	[a-zA-Z_0-9]		 单词字符
+ // \W	[^a-zA-Z_0-9]	    非单词字符
+
+    console.log(/./.test("\n\r"));
+    console.log(/./.test("asdasd"));
+    console.log(/./.test("asdasd\n"));
+    console.log(/./.test("asdasd\r"));
+
+/*
+    console.log("-------简单类--------");
+    // 1、/string/.test(“string”);            必须是完整的，只多不能少
+    /andy/.test('andy') ;					// true
+    /andy/.test('andyly') ;		        // true
+    /andy/.test('an') ;			        // false
+    // 一句话，只要完整包含了andy 就可以了（有他就行）
+   // 2、/[string]/.test(“string”);   			只要包含里面的任何一个就可以
+    /[andy]/.test("andy");  				// true
+    /[andy]/.test("an");					// true
+    /[andy]/.test("ady");				// true
+    /[andy]/.test("anll");				// true
+    /[andy]/.test("assd");				// true
+    /[andy]/.test("ss");					// false
+*/
+
+    console.log("-------负向类--------");
+/*    中括号内，前面加个元字符^进行取反，不是括号里面的字符（一部分也不行）。
+(可以不够，但是不能多)（不够和正好，返回false；多了或者没有返回true）
+ console.log(/[^abc]/.test('a'));
+    console.log(/[^abc]/.test('gg'));
+    注意:  这个符号 ^  一定是写到方括号里面*/
+
+    console.log(/[^abc]/.test('a')); //false
+    console.log(/[^abc]/.test('ab'));//false
+    console.log(/[^abc]/.test('abd'));//true
+    console.log(/[^abc]/.test('abcd'));//true
+    console.log(/[^abc]/.test('gg'));//true
+
+
+    console.log("-------范围类--------");
+    // 有时匹配的东西过多，而且类型又相同，全部输入太麻烦，我们可以在中间加了个横线
+    console.log(/[a-z]/.test('1111')); //false
+    console.log(/[a-z]/.test('aa'));//true
+    console.log(/[A-Z]/.test('aa'));//false
+
+    console.log("-------组合类--------");
+    // 中括号匹配不同类型的单个字符。
+console.log(/[a-m1-5]/.test("fsdb"))//true
+console.log(/[a-m1-5]/.test("b"))//true
+console.log(/[a-m1-5]/.test(1))//true
+console.log(/[a-m1-5]/.test("8"))//false
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

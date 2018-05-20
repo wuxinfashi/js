@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//对象的特性:
+//1.具有唯一性
+//面向对象的特征:封装,继承,多态
+//JS是基于对象:无法创建自定义类型、不能很好支持继承和多态。
+
+var hero = new Object();
+
+//属性（对象中变量）和方法（对象中函数）
+//可以自定义属性和方法
+//对象的属性绑定
+hero.money = 10000;
+hero.name = 'hrj';
+hero.attack = function () {
+    console.log('攻击了哥布林');
+}
+
+console.log(hero);
+console.log(hero.money);
+console.log(hero.name);
+hero.attack();/*必须加()才能调用对象的方法*/
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

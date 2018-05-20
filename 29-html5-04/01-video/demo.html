@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <video width="500" src="video/trailer.mp4" controls></video>
+</div>
+
+<button class="btn1">全屏</button>
+<button class="btn2">取消全屏</button>
+
+<script>
+//     - Node.requestFullScreen() 开启全屏显示
+//     - Node.cancelFullScreen() 关闭全屏显示
+//     - 由于其兼容性原因，不同浏览器需要添加前缀如：
+//   webkit内核浏览器：webkitRequestFullScreen、webkitCancelFullScreen，如chrome浏览器。
+//   Gecko内核浏览器：mozRequestFullScreen、mozCancelFullScreen，如火狐浏览器。
+// - document.fullScreen检测当前是否处于全屏
+//     不同浏览器需要添加前缀
+//     document.webkitIsFullScreen、document.mozFullScreen
+
+
+    document.querySelector('.btn1').onclick = function () {
+        /*全屏操作*/
+        /*每一个元素都有全屏方法*/
+        /*H5的api存在兼容问题*/
+        /*在IE9以下不支持  加也没有用*/
+        /*但是在高级浏览器新版本支持，但是需要加上私有前缀*/
+        /*私有前缀：css (-webkit-,-moz-,-ms-,-o-) */
+        /*在js当中也有私有前缀  在方法属性之前加上就可以  首字母大小*/
+        //document.querySelector('video').webkitRequestFullScreen();
+
+        /*页面文档全屏*/
+        // document.querySelector('body').webkitRequestFullScreen();
+        // document.querySelector('.box').webkitRequestFullScreen();
+        // 浏览器提供的全屏:
+        document.documentElement.webkitRequestFullScreen();
+    }
+    document.querySelector('.btn2').onclick = function () {
+        /*取消全屏   跟元素没有关系*/
+        document.webkitCancelFullScreen();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

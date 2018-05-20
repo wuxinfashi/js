@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>赋诗</button>
+
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    EventListen = {
+        addEvent:function (ele,fn,str) {
+//        通过判断调用方式兼容IE678
+//        判断浏览器是否支持该方法,如果支持那么调用,不支持则调用其他方法
+            if(ele.addEventListener){
+//            如果该方法在浏览器存在则调用
+                ele.addEventListener(str,fn);
+
+            }
+            else if(ele.attachEvent){
+                ele.attachEvent("on" + str,fn);
+            }
+            else {
+//            在其他两个都不存在的情况下使用此方法
+                ele["on"+str]=fn;
+            }
+
+        }
+
+    }
+
+
+    function fn1() {
+        console.log("九尺龙泉万卷书,上天生我意何如");
+    }
+    function fn2() {
+        console.log("不能报国平天下,枉我男儿大丈夫");
+    }
+
+    EventListen.addEvent(btn,fn1,"click");
+    EventListen.addEvent(btn,fn2,"click");
+
+//    事件解绑:
+//    方法1:
+//btn.onclick = null;
+
+//    方法2:IE9+和火狐谷歌(必须是以addEventListener的方法绑定的,才能用该方式解绑)
+//btn.removeEventListener("cilck");
+
+//    方法3:IE9以前(如果注册的时候使用匿名函数,则无法移除(必须是以addEvent的方式绑定的才能用该方式解绑)
+//        detachEvent();
+
+
+//    兼容性写法:
+
+    EventListen = {
+        deleteEvent:function (ele,fn,str) {
+            if(ele.removeEventListener){
+                ele.removeEventListener(str,fn);
+            }
+            else if(ele.detachEvent) {
+                ele.detachEvent("on"+str,fn);
+            }
+            else {
+                ele["on"+str] = null;
+            }
+
+        }
+
+    }
+
+EventListen.deleteEvent(btn,fn1,"click");
+EventListen.deleteEvent(btn,fn2,"click");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

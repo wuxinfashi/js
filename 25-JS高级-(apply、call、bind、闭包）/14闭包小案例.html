@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script>
+
+
+    //普通的函数
+    function f1() {
+        // 每一次重新初始化了
+      var num = 10;
+      num++;
+      return num;
+    }
+    console.log(f1());//11
+    console.log(f1());//11
+    console.log(f1());//11
+
+    //函数模式的闭包
+    function f2() {
+        // 在本案例中不会每次都初始化
+      var num = 10;
+      return function () {
+        num++;
+        return num;
+      }
+    }
+    var ff = f2();
+/*    // 相当于:
+    ff = function(){
+        num++;
+        return num;
+    }*/
+    console.log(ff());//11
+    console.log(ff());//12
+    console.log(ff());//13
+  </script>
+</head>
+<body>
+
+
+</body>
+</html>

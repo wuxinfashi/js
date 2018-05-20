@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script>
+
+  // 作用:变量互相独立,不互相影响
+  // 方法:使用自调用函数,或构建一个函数,尽量少用全局变量
+    (function () {
+      var str="小白喜欢小黑";
+      // 截取前两个字符
+      str=str.substr(2);
+      console.log(str);
+    }());
+
+
+    //沙箱
+    (function () {
+      var str="小明喜欢小红";
+      str=str.substr(2);
+      console.log(str);
+    }());
+
+
+
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<script>
+  //点击按钮,弹出对话框
+  (function () {
+    document.getElementById("btn").onclick=function () {
+      console.log("按钮被点击了");
+    };
+  }());
+
+</script>
+
+</body>
+</html>

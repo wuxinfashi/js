@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用浏览器查看cookie信息(shift+ctrl+i组合键)
+
+<script>
+    // 设置cookie:(cookie只会做增量,不会覆盖)
+    // document.cookie = 'key=value;key1=value1';
+
+    // 需要上传到服务器才有效
+    function createCookie(name,value,days,path,domain,secure) {
+        if(days){
+            var date = new Date();
+            // days为渴望保留的日期
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            var expires = date.toUTCString();/*书上写着toGMTString应该是写错了*/
+        }
+        else{
+            var expires = "";
+        }
+        var cookieString = name + "=" + encodeURI(value);
+        if(expires){
+            cookieString +="";
+            expires = '' + expires;
+        }
+        if(path){
+            cookieString +='';path=''+ encodeURI(path);
+        }
+        if(domain){
+            cookieString +='';domain+=''+ encodeURI(domain);
+        }
+        if(secure){
+            cookieString +='';secure+=''+ encodeURI(secure);
+        }
+        document.cookie = cookieString;
+        console.log(cookieString);
+
+
+    }
+    createCookie("username","Sam Jones",5);
+    createCookie("location","USA",5);
+    createCookie("status","fullmenber",5);
+    function getCookie(name){
+        var nameEquals = name + "=";
+        var crumbs = document.cookie.split(';');
+        for(var i=0;i<crumbs.length;i++){
+            var crumb = crumbs[i];
+            // 验证是否空数组
+            if(crumb.indexOf(nameEquals)==0){
+                // 解码所提取的字符(从nameEquals的长度开始截取到crumb.length结束)
+                return decodeURI(crumb.substring(nameEquals.length,crumb.length));
+            }
+        }
+        return null;
+    }
+    console.log(getCookie("username"));
+
+</script>
+
+</body>
+</html>

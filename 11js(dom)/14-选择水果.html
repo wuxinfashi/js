@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select{
+            width: 100px;
+            height: 200px;
+            font-size: 16px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+<select name="" id="sell" size="10">
+    <option >香蕉</option>
+    <option >苹果</option>
+    <option >鸭梨</option>
+    <option >葡萄</option>
+</select>
+<button>>>></button>
+<button><<<</button>
+<button>>></button>
+<button><<</button>
+
+<select name="" id="buy" size="10">
+    <option ></option>
+    <option ></option>
+    <option ></option>
+    <option></option>
+</select>
+
+<script>
+var sellArr = document.getElementById('sell');
+var buyArr = document.getElementById('buy');
+btn1=document.getElementsByTagName('button')[0];
+btn2=document.getElementsByTagName('button')[1];
+btn3=document.getElementsByTagName('button')[2];
+btn4=document.getElementsByTagName('button')[3];
+//保存被选择的选项
+var chosen = [];
+window.onload = function () {
+    function fn() {
+        for(var i=0;i<sellArr.length;i++){
+            sellArr[i].index = i;
+            sellArr[i].onclick = function () {
+                this.style.backgroundColor ="red";
+                chosen.push(this.index);
+                var temp =0;
+                for(var j=0;j<chosen.length-1;j++){
+                    for(var k=0;k<chosen.length-1;k++){
+                        if(chosen[j]<chosen[k]){
+                            temp = chosen[j];
+                            chosen[j]=chosen[k];
+                            chosen[k]=temp;
+                    }
+
+                }
+            }
+//                alert(chosen);
+            }
+        }
+    }
+    fn();
+
+
+//转移所有选项
+btn1.onclick = function () {
+for(var i=0;i<chosen.length;i++){
+    var tempArr =sellArr.children.cloneNode(true);
+    buyArr.replaceChild(tempArr,buyArr.children);
+//    buyArr.replaceChild();
+
+}
+}
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

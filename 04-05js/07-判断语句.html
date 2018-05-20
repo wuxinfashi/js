@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+需求：输入名人，弹出他所参演的电视剧。
+步骤：
+1.页面输出，后台获取。
+2.判断输出的人物是谁并给出电视剧。
+3.如果没有这个人，那么弹框警示。
+-->
+<script>
+/*    var str = prompt("请输入一位名人：  ");
+    if(str ==="陈道明"){
+        alert("陈道明参演过：《康熙王朝》 《楚汉传奇》");
+
+    }else {
+        alert("这货是谁");
+    }*/
+
+
+/*<!--
+需求：弹框显示今天是星期几。
+步骤：
+1.获取当天是星期几。
+2.判断输判断星期几。
+3.弹框显示。
+-->*/
+/*var abc = new Date();
+//console.log(abc.getDay());0-6星期天是0
+    var num = abc.getDay();/!*注意方法后面需要括号*!/
+
+    switch (num){
+        case 0:
+            alert("星期日");
+            break;
+        case 1:
+            alert("星期一");
+            break;
+        case 2:
+            alert("星期二");
+            break;
+        case 3:
+            alert("星期三");
+            break;
+        case 4:
+            alert("星期四");
+            break;
+        case 5:
+            alert("星期五");
+            break;
+        case 6:
+            alert("星期六");
+            break;
+
+    }*/
+
+
+/*需求：百分制转化成优良中可差。
+    思路1：获取值，然后判断在90-100。。。80-90。。。
+    思路2：获取值，然后除以10取整，==10满分，==9优，==8良，==7中，==6可，其余差。*/
+
+var num = prompt("输入成绩： ");
+num = parseInt(num/10);
+switch (num){
+    case 10:
+        alert("满分");
+        break;
+    case 9:
+        alert("优");
+        break;
+    case 8:
+        alert("良");
+        break;
+    case 7:
+        alert("中");
+        break;
+    case 6:
+        alert("可");
+        break;
+    default:
+        alert("差");
+        break;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

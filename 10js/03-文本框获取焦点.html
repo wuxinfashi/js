@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            weight:300px;
+            height: 36px;
+            padding: 5px;
+            color: #ccc;
+        }
+        label{
+            position: absolute;
+            top:91px;
+            left:56px;
+            font: 12px;
+            color: #cccccc;
+            cursor: text;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+    <script src="modernizr.custom.37725.js"></script>
+    <script src="//cdn.polyfill.io/v1/polyfill.min.js" async defer></script>
+</head>
+<body>
+京东:<input type="text" value="我是京东" id="inp1"><br><br>
+淘宝:<label for="inp2">我是淘宝</label><input type="text"  id="inp2"><br><br>
+placehodler:<input type="text" placeholder="我是placeholder"><!--该方法兼容性不好,字体颜色不能改-->
+自动获取焦点:<input type="text" <!--autofocus--> ><!--html5的方法获取光标-->
+
+
+<!--淘宝获取焦点的做法:<label for="id"></label>-->
+
+
+<script>
+/*
+//    京东的获取焦点
+//    思路:京东的input获取了插入条光标立即删除内容,失去插入光标显示文字
+var inp1 = document.getElementById('inp1');
+//获取焦点事件
+inp1.onfocus = function () {
+    if(this.value ==='我是京东'){
+        this.style.color = '#000';
+        inp1.value = '';
+    }
+
+
+}
+//失去焦点事件
+inp1.onblur = function () {
+//    如果内容为空把值变回我是京东,否则不变(可以通过颜色判断是否客户输入的值)
+    if(this.value ===''){
+        this.style.color = '#ccc';
+        this.value ='我是京东';
+    }
+
+}
+*/
+
+//淘宝的获取焦点:
+//思路:在input中输入文字,label标签隐藏,里面的文字变成空字符串
+var inp2 = document.getElementById('inp2');
+inp2.focus();/*使用JS的方法自动获取焦点*/
+var lab = document.getElementsByTagName('label')[0];
+//文字的输入和删除都会触发该事件
+inp2.oninput = function () {
+//    判断input中的值是否为空,如果为空,那么label标签显示,否则隐藏
+    if(this.value===''){
+    lab.className = '';
+    }
+    else {
+        lab.className ='hide';
+    }
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

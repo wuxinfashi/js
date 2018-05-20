@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制Css3效果</title>
+    <style>
+        #div1{
+            width: 600px;
+            height: 350px;
+            background-color: #6699cc;
+        }
+        #div2{
+            background-color: #aaaaff;
+            width: 80px;
+            height: 80px;
+            padding: 20px;
+            position: relative;
+            left: 240px;
+            top: 105px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn1 = document.getElementById('btn1');
+            btn1.onclick = function () {
+                document.getElementById('div1').style.background = "radial-gradient(at top left,white,#6699cc)";
+                document.getElementById('div2').style.boxShadow = "10px 10px 10px #808080";
+            }
+
+            var btn2 = document.getElementById('btn2');
+            btn2.onclick = function () {
+                document.getElementById('div1').style.background = "radial-gradient(at top right,white,#6699cc)";
+                document.getElementById('div2').style.boxShadow = "-10px 10px 10px #808080";
+            }
+
+            var btn3 = document.getElementById('btn3');
+            btn3.onclick = function () {
+                document.getElementById('div1').style.background = "radial-gradient(at bottom,white,#6699cc)";
+                document.getElementById('div2').style.boxShadow = "0px -10px 10px #808080";
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        光线:<br/>
+        <input type="button" id="btn1" value="左上角"><br/>
+        <input type="button" id="btn2" value="右上角"><br/>
+        <input type="button" id="btn3" value="底部">
+    </div>
+</div>
+</body>
+</html>

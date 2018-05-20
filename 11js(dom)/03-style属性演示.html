@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+           border: 1px solid;
+
+        }
+    </style>
+</head>
+<body>
+<div class="box" style="width: 100px;height:100px;background-color: #cccccc">你好中国</div>
+
+
+<script>
+//    style属性的设置和获取:(style是一个对象,不能获取内嵌式和外链)
+//    1.样式少的时候使用
+//    2.style是一个对象
+//    3.值是字符串,没有时设置值""
+//    4.命名规则为驼峰命名,和css不一样
+//    5.设置了类样式不能获取(只和行内式交互,和内嵌和外链无关)
+//    6.box.style.cssText = '字符串形式的样式';
+//style的常用属性:
+/*backgroundColor:
+backgroundImage:
+color:
+width:
+height:
+border:
+opacity(IE8以前用filter:alpha(opacity=xx))
+注意DOM对象的style的属性和标签中style的值不一样,因为JS中-不能作为标识符*/
+    var box = document.getElementsByTagName('div')[0];
+//    行内式可以获取相关属性
+    console.log(box.style.height);
+//    在head部分的无法获取
+    console.log(box.style.border);
+//多项赋值:
+box.style.cssText ="width: 200px;height:200px;background-color: red"
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

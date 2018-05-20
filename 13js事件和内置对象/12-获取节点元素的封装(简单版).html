@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px auto;
+
+        }
+    </style>
+</head>
+<body>
+<div    class="box"></div>
+<div    id="box"></div>
+<div    class="box"></div>
+<div></div>
+
+
+
+
+<script>
+//    需求:一个方法包含三种获取元素节点的功能.通过传递参数的不同来决定使用哪种方法
+//    例如: "idbox",则通过getElementById()来获取
+//    例如: "clbox",则通过getElementByClassName()来获取
+//    例如: "tdiv",则通过getElementByTagName()来获取
+//    化简:使用类似css的获取方式来表明使用哪种方式来获取
+//    #box getElementById()
+//    .box getElementByClassName()
+//    div  getElementByTagName()
+
+//    思路:封装一个方法,然后判断第一个字符,如果是#则用getElementById(),如果是.则使用getElementByClassName(),否则使用getElementByTagName()
+
+//    步骤:
+//    1.封装一个方法,获取参数的第一个字符
+//      2.判断一个字符是#走第一个逻辑,如果是.走第二个逻辑,如果都不是走最后一个逻辑
+
+    function getEle(str) {
+//          给索引查字符,获取第一个字符
+        var str1 = str.charAt(0);
+//        因为传递过来的值带有#,索引我们要从第二项开始搜索
+        if(str1 ==="#"){
+            return document.getElementById(str.slice(1));
+        }
+        else if(str1 ==="."){
+            return document.getElementsByClassName(str.slice(1));
+        }
+        else{
+            return document.getElementsByTagName(str);
+        }
+
+    }
+
+//    验证:
+//    获取ID:
+    getEle('#box').style.backgroundColor ="red";
+//    获取class:
+    var boxArr = getEle(".box");
+    for(var i=0;i<boxArr.length;i++){
+        boxArr[i].style.width = "200px";
+    }
+//    获取标签:
+    var divArr = getEle('div');
+    for(var i=0;i<divArr.length;i++){
+    divArr[i].style.border = "1px solid #000";
+}
+
+
+
+
+
+</script>
+</body>
+</html>

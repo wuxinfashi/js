@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    死循环案例
+/*    var sum = 0；
+    while(true){
+        sum+=i;
+        i++;
+        if(i>100){
+            break;
+        }
+    }*/
+
+//需求：点击取消，一直弹窗，点击确定，则中止
+do{
+    var bool = confirm("你好啊");
+//    如果点击的是取消，bool返回的是false,为了进入下一次循环，把他变成true。
+    if(bool){
+        alert("我们去三亚拍照吧");
+    }
+}
+while(!bool);
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    求圆面积
+    var area=getArea(1);
+    console.log(area);
+
+    function getArea(r) {
+        var pi = Math.PI;
+        a = pi*Math.pow(r,2);
+        return a;
+    }
+
+//两个数求最大值
+console.log(getMax(1,2));
+
+function getMax(a,b) {
+    if(a>b){
+        return a;
+    }
+    return b;
+}
+
+//三个数中求最大值
+
+console.log(getMaxThree(1,2,3));
+    function getMaxThree(a,b,c) {
+        var d = a>b?a:b;
+        return d>c?d:c;
+    }
+
+//求一组数中的最大值
+var arr = [-3,-2,-1,0,1,2,3];
+
+    function getArrayMax(array) {
+        var max = array[0];
+        for(var i = 0 ;i<array.length;i++){
+            if(array[i]>max){
+                max = array[i];
+            }
+        }
+        return max;
+    }
+console.log(getArrayMax(arr));
+
+
+
+
+
+
+</script>
+</body>
+</html>

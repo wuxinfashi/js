@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    递归是一种思想,类似于计数器,开闭原则.
+//    实际上就是函数调用自身.注意!递归必须有跳出条件,否则是死循环.
+var i = 0;
+    fn();
+//    调用自身,死循环,
+/*    function fn() {
+        alert("从前有座山....");
+        fn();
+    }*/
+
+//    存在跳出条件
+
+function fn() {
+    if(i<3){
+        alert("从前有座山....");
+        alert(i);
+        i++;
+        fn();
+    }
+    return;
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

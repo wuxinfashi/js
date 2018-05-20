@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    用递归求1-100的和
+  var i=1 ;
+  var sum =0;
+  getSum();
+    function getSum() {
+        if(i<=100){
+            sum += i;
+            i++;
+            getSum();
+        }
+
+        return sum;
+    }
+
+    alert(sum);
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

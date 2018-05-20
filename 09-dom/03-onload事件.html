@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<div id="box"></div>-->
+
+
+
+<script>
+//    页面加载完毕发生的事件(包括文本和图片)
+//主要用途:整改页面上所有元素加载完毕再执行js里面的内容.可以防止使用元素在定义元素之前
+//js的加载是和html同步加载的(如果使用元素在定义元素之前容易报错)
+window.onload = function () {
+    var aaa = document.getElementById('box');
+    console.log(aaa);
+    aaa.style.width = '100px';
+    aaa.style.height = '100px';
+}
+
+/*var aaa = document.getElementById('box');
+console.log(aaa);
+aaa.style.width = '100px';
+aaa.style.height = '100px';*/
+
+</script>
+
+<div id="box"></div>
+
+
+
+
+
+
+
+
+</body>
+</html>

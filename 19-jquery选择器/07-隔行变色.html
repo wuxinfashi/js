@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        //入口函数
+        $(document).ready(function () {
+            var $li = $('li');
+            for(i=0;i<$li.length;i++){
+                // 偶数行
+                if(i%2===0){
+                    // 将jquery对象转换为dom对象
+                    $li[i].style.backgroundColor = "blue";
+                }
+                else {
+                    $li[i].style.backgroundColor = 'pink';
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li>班长今天老帅了，嗷嗷帅...</li>
+    <li>班长今天老帅了，嗷嗷帅...</li>
+    <li>班长今天老帅了，嗷嗷帅...</li>
+    <li>班长今天老帅了，嗷嗷帅...</li>
+    <li>班长今天老帅了，嗷嗷帅...</li>
+    <li>班长今天老帅了，嗷嗷帅...</li>
+    <li>班长今天老帅了，嗷嗷帅...</li>
+</ul>
+</body>
+</html>

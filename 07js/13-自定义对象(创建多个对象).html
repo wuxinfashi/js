@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    创建一个函数
+//缺点:代码冗余,方式比较low
+//改进:利用构造函数可自定义对象
+var stu1 = createStudent('张三');
+console.log(stu1);
+var stu2 = createStudent('李四');
+console.log(stu2);
+stu1.sayHi();
+
+    function createStudent(aaa) {
+        var student = new Object();
+        student.name = aaa;
+        student.sayHi = function () {
+            console.log(this.name+"说:大家好");
+        }
+        return student;/*必须注意需要返回值*/
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

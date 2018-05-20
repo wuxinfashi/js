@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box1">
+    <div class="box2" id="box2">
+        <div class="box3">
+
+        </div>
+    </div>
+
+<script>
+    var box1 = document.getElementsByClassName('box1')[0];
+    var box2 = document.getElementsByClassName('box2')[0];
+
+//    1.创建节点:
+    var aaa = document.createElement('li');
+    var bbb = document.createElement('sdadas');
+    console.log('aaa');
+    console.log('bbb');
+
+//    2.插入节点
+box1.appendChild(aaa);
+box1.insertBefore(bbb/*新节点*/,aaa/*参考节点*/);
+
+//3.删除节点
+box1.removeChild(bbb);
+aaa.parentNode.removeChild(aaa);/*(自己删除自己)*/
+
+//    4.复制节点
+var ccc = box1.cloneNode(true);/*复制子节点*/
+var ddd = box1.cloneNode(false);/*不复制子节点*/
+console.log(ccc);
+console.log(ddd);
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

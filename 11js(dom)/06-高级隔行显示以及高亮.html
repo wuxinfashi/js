@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            margin: 100px auto;
+        }
+        th{
+            background-color: blue;
+            font: 20px/50px "simsum";
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border-collapse: collapse;
+
+        }
+        td{
+            /*background-color:#cccccc;*/
+            font: 10px/50px "simsum";
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border-collapse: collapse;
+
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>课程</th>
+            <th>成绩</th>
+        </tr>
+        </thead>
+        <tbody id="target">
+        <tr>
+            <td>1</td>
+            <td>吕不韦</td>
+            <td>语文</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>吕布</td>
+            <td>日语</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>吕蒙</td>
+            <td>英语</td>
+            <td>57</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>吕尚</td>
+            <td>法语</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>吕雉</td>
+            <td>西班牙语</td>
+            <td>54</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>吕超</td>
+            <td>葡萄牙语</td>
+            <td>54</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var tbody = document.getElementById("target");
+    var trArr = tbody.children;
+    for(var i=0;i<trArr.length;i++){
+        if(i%2!==0){
+            trArr[i].style.backgroundColor = "#c3c3c3";
+        }
+        else {
+            trArr[i].style.backgroundColor = "#ccc";
+        }
+        var color = '';
+        trArr[i].onmouseover = function () {
+//        赋值颜色之前先记录颜色
+            color = this.style.backgroundColor;
+            this.style.backgroundColor = "#fff";
+
+        }
+        trArr[i].onmouseout = function () {
+            this.style.backgroundColor = color;
+        }
+
+    }
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

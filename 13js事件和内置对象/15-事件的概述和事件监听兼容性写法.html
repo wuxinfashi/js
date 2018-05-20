@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>赋诗</button>
+
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+//    第一种事件绑定的方法会被层叠:
+/*
+    var btn = document.getElementsByTagName("button")[0];
+
+    btn.onclick = function () {
+        console.log("九尺龙泉万卷书,上天生我意何如");
+    }
+
+    btn.onclick = function () {
+        console.log("不能报国平天下,枉我男儿大丈夫");
+    }
+*/
+
+//第二种事件绑定方式:(事件监听器)addEventListener
+//有点:第二种事件绑定的方法不会层叠，原事件被执行的时候后面绑定的事件照样执行。
+//缺点：火狐,谷歌,IE9+以上才支持
+//说明：调用者是事件源，参数1是事件名（不带on），参数2执行函数，参数3捕获或者冒泡
+//var btn = document.getElementsByTagName("button")[0];
+//
+//    btn.addEventListener("click",fn1);
+//    btn.addEventListener("click",fn2);
+//
+//    function fn1() {
+//        console.log("九尺龙泉万卷书,上天生我意何如");
+//    }
+//    function fn2() {
+//        console.log("不能报国平天下,枉我男儿大丈夫");
+//    }
+
+//第三种:attachEvent(只有两个参数,不支持事件或者冒泡)
+//IE6.7.8支持该方法,火狐谷歌不支持
+//var btn = document.getElementsByTagName("button")[0];
+//
+//btn.attachEvent("onclick",fn1);
+//btn.attachEvent("onclick",fn2);
+//
+//function fn1() {
+//    console.log("九尺龙泉万卷书,上天生我意何如");
+//}
+//function fn2() {
+//    console.log("不能报国平天下,枉我男儿大丈夫");
+//}
+
+//    addEventListener()和attachEvent()的区别:
+//    时间名称的区别:
+//    1.addEventListener()第一个参数type是clock,load,不带on
+//    2.attachEvent()中第一个参数type是onclick/onload
+//    this的区别:
+//    addEventListener():事件处理程序的this就是当前对象
+//    attachEvent():是在全局作用域下运行的,this就是window
+
+
+
+
+
+//兼容性写法:
+
+    EventListen = {
+    addEvent:function (ele,fn,str) {
+//        通过判断调用方式兼容IE678
+//        判断浏览器是否支持该方法,如果支持那么调用,不支持则调用其他方法
+        if(ele.addEventListener){
+//            如果该方法在浏览器存在则调用
+            ele.addEventListener(str,fn);
+
+        }
+        else if(ele.attachEvent){
+            ele.attachEvent("on" + str,fn);
+        }
+        else {
+//            在其他两个都不存在的情况下使用此方法
+            ele["on"+str]=fn;
+        }
+
+        }
+
+    }
+
+
+    function fn1() {
+        console.log("九尺龙泉万卷书,上天生我意何如");
+    }
+    function fn2() {
+        console.log("不能报国平天下,枉我男儿大丈夫");
+    }
+
+    EventListen.addEvent(btn,fn1,"click");
+    EventListen.addEvent(btn,fn2,"click");
+
+
+
+
+</script>
+</body>
+</html>

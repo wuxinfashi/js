@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type='button' value="我是input中的button">
+<button></button>
+<div><p>你好啊</p></div>
+<script>
+//    value:标签的value属性值
+//获取标签中的属性值
+console.log(document.getElementsByTagName('input')[0].value);
+
+//innerHTML:获取双闭合标签中的内容(识别标签)
+console.log(document.getElementsByTagName('div')[0].innerHTML);
+
+//innerText:获取标签中的内容(不识别标签)(老版本的火狐是不支持innerText的,IE678不支持textConTent)
+console.log(document.getElementsByTagName('p')[0].innerText);
+
+//textContent:获取标签中的内容(IE678不支持textConTent)
+    console.log(document.getElementsByTagName('div')[0].textContent);
+
+
+//p不能嵌套p,h1不能嵌套h1,a连接内部不能嵌套a链接
+
+
+</script>
+
+</body>
+</html>

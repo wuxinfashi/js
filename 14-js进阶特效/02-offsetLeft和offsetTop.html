@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            padding: 100px;
+            background-color: pink;
+            position: relative;
+            border: 10px solid #000;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2" style="position: relative">
+        <div class="box3"></div>
+    </div>
+</div>
+<script>
+    box2 = document.getElementsByClassName('box2')[0];
+    box3 = document.getElementsByClassName('box3')[0];
+//    offsetLeft和offsetTop(检测距离父盒子有定位的左/上面的距离)
+//    返回距离上级盒子（带有定位）左边的位置
+//    如果父级都没有定位则以body为准
+//    offsetLeft 从父亲的padding开始算,父亲的border不算。
+//    在父盒子有定位的情况下，offsetLeft == style.left(去掉px)
+    console.log(box3.offsetTop);
+    console.log(box3.offsetLeft);
+    console.log(box3.style.left);/*(只识别行内式)*/
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box1">
+    <div class="box2" id="box2">
+    <div class="box3">
+
+    </div>
+</div>
+
+<script>
+//    节点的访问关系是以属性形式存在的
+//    1.box1是box2的父节点
+//nodeType == 1 表示元素节点(元素既是标签)
+//nodeType == 2 表示属性节点
+//nodeType == 3 表示文本节点
+//子节点数组=父节点.childNodes;获取所有节点
+//子节点数组=父节点.children非标准属性,它返回指定元素的子元素集合,但他只返回HTML节点,不返回文本节点(但实际应用中用得最多)
+    var box1 = document.getElementsByClassName('box1')[0];
+    var box2 = document.getElementsByClassName('box2')[0];
+//    1.box2的父节点
+    console.log(box2.parentNode);
+//    2.nextElementSibling下一个兄弟节点
+console.log(box2.nextElementSibling);
+//    3.firstElementChild第一个子节点
+console.log(box1.firstElementChild);
+//    4.childNodes所有子节点
+console.log(box1.childNodes);
+//5.节点自己.parentNode.children[index];获取随意的兄弟节点
+
+
+//    节点操作:
+//1.创建节点:document.createElement();
+//新的标签(节点)=document.createElement("标签名");
+
+//    2.插入节点(使用节点):
+//    使用方法: 父节点.appendChild();
+//    父节点.appendChild("新节点");父节点的最后插入一个新节点
+//使用方法：父节点.insertBefore();(要插入的节点,参考节点)
+//父节点.insertBefore(新节点,参考节点);在参考节点前插入
+//如果参考节点为null,那么他将在节点最后插入一个节点
+
+//3.删除节点:
+//用法:用父节点删除子节点
+//父节点.removeChild(子节点);必须制定要删除的子节点
+//不知道父节点的情况下可以这么写:
+//node.parentNode.removeChild(node);
+
+//4.复制节点:
+//oldNode.cloneNode(true);
+//方法内部可以传参,如果是true,深层复制(节点本身以及其所有子节点),如果是false(复制节点本身,不复制子节点),只复制节点本身.
+//    新节点=要复制的节点.cloneNode(参数);
+
+
+
+
+</script>
+</body>
+</html>

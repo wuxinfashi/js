@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body,html {
+            height: 100%;
+        }
+        /*有div的话还需要把div的高加上*/
+        div{
+            height: 100%;
+        }
+        ul {
+            list-style: none;
+            height: 100%;
+        }
+        ul li {
+            height: 100%;
+        }
+        ol {
+            list-style: none;
+            position: fixed;
+            top: 80px;
+            left: 50px;
+        }
+        ol li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 50px;
+            margin-top: -1px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../15-js进阶特效/14-返回头部小火箭/animate.js"></script>
+    <script>
+        // 需求:点击ol中的li,屏幕滑动到对应的ul中的li的范围
+        //     思路:利用window.scrollTo();利用缓动动画实现屏幕滑动
+        // 步骤:
+        // 1.指定ul和ol中的li的背景色,ul和ol中对应的li背景色相同
+        // 2.老三步
+        // 3.利用缓动动画原理实现屏幕滑动
+        // 4.用scroll事件,模拟屏幕滚动的距离
+        // 记得加上window.onload不然可能获取节点失败
+        window.onload=function () {
+            var ul = document.getElementsByTagName('ul')[0];
+            var ol = document.getElementsByTagName('ol')[0];
+            var ulLiArr = ul.children;
+            var olLiArr = ol.children;
+            var arrColor =['pink','blue','yellow','orange','green'];
+            // 为什么要两个值?因为要通过计算两个值得距离来实现缓动动画
+            var target = 0;
+            var leader = 0;
+            var timer = null;
+            // 利用for循环给两个数组上色
+            window.onscroll = function () {
+                // 每次屏幕滑动,吧屏幕卷去的头部赋值给leader,模拟获取距离顶部的距离
+                leader =scroll().top;
+            };
+            for(var i=0;i<ulLiArr.length;i++){
+                ulLiArr[i].style.backgroundColor = arrColor[i];
+                olLiArr[i].style.backgroundColor = arrColor[i];
+                // 绑定索引值:
+                olLiArr[i].index = i;
+                // 循环绑定事件
+                olLiArr[i].onclick = function () {
+                    target = ulLiArr[this.index].offsetTop;
+                    // 要用定时器先清除定时器
+                    clearInterval(timer);
+                    // 利用缓动动画实现屏幕滑动
+                    timer = setInterval(function () {
+                        var step = (target-leader)/10;
+                        // 二次处理步长
+                        step = step>0?Math.ceil(step):Math.floor(step);
+                        // 屏幕滑动
+                        leader = leader + step;
+                        window.scrollTo(0,leader);
+                        // 清除定时器
+                        if(Math.abs(target-leader)<=Math.abs(step)){
+                            window.scrollTo(0,target);
+                            clearInterval(timer);
+                        }
+                    },25)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<!--盒子不能有定位,否则li将以盒子为基准,而不是以body为基准-->
+<div>
+    <ul>
+        <li>鞋子区域</li>
+        <li>袜子区域</li>
+        <li>裤子区域</li>
+        <li>裙子区域</li>
+        <li>帽子区域</li>
+    </ul>
+    <ol>
+        <li>鞋子</li>
+        <li>袜子</li>
+        <li>裤子</li>
+        <li>裙子</li>
+        <li>帽子</li>
+    </ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            width: 1210px;
+            margin: 100px auto;
+        }
+        li{
+            height: 34px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>北京股指 3063.31-22.18(-0.72%)</li>
+    <li>上海股指 3063.31-22.18(-0.72%)</li>
+    <li>广州股指 3063.31-22.18(-0.72%)</li>
+    <li>深圳股指 3063.31-22.18(-0.72%)</li>
+    <li>北京股指 3063.31-22.18(-0.72%)</li>
+    <li>上海股指 3063.31-22.18(-0.72%)</li>
+    <li>广州股指 3063.31-22.18(-0.72%)</li>
+    <li>深圳股指 3063.31-22.18(-0.72%)</li>
+
+</ul>
+
+<script>
+//    需求:利用childNodes实现隔行变色(index=0)
+var ul =document.getElementsByTagName("ul")[0];
+var arr = ul.childNodes;
+var liArr =[];
+for(var i=0;i<arr.length;i++){
+    if(arr[i].nodeType===1){
+        liArr.push(arr[i]);
+    }
+}
+
+for(var i=0;i<liArr.length;i++){
+    if(i%2!==0){
+        liArr[i].style.backgroundColor = 'red';
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//简单版:
+//    利用children:偶数行一个颜色,奇数行一个颜色(不包含文本节点)
+/*var arr = document.getElementsByTagName('li');
+for(var i=0;i<arr.length;i++){
+    if(i%2===0){
+        arr[i].style.backgroundColor = '#ccc';
+    }
+    else {
+        arr[i].style.backgroundColor = 'red';
+    }
+}*/
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

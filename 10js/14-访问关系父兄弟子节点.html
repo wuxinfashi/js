@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style: none;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 5px;
+
+        }
+    </style>
+</head>
+<body>
+
+
+<ul id="ul1">
+    <li class="box1"></li>
+    <li id="box2"></li>
+    <li class="box3"></li>
+    <li class="box4"></li>
+    <li class="box5"></li>
+</ul>
+
+<script>
+//    parentNode父盒子
+    var ul1 = document.getElementById('ul1');
+    var box2 = document.getElementById('box2');
+    box2.parentNode.style.backgroundColor = '#59f5ff';
+
+//    兄弟节点(前一个:previousSibling 后一个:nextSlbling)
+//    previous/nextElementSibling:在火狐谷歌IE9中都是指下一个元素节点.
+//previous/nextElementSibling:调用者是节点.IE678中指的是下一个元素节点(标签),在火狐谷歌IE9中都是指下一个元素节点(包括空文档和换行节点)
+//总结:在IE678中用previous/nextSibling,在火狐谷歌IE9+以后用previousElementSibling!!!!!!!!!!!!!
+//谷歌支持的版本
+//box2.previousElementSibling.style.backgroundColor = 'yellow';
+//box2.nextElementSibling.style.backgroundColor = 'red';
+/*IE678支持的版本:
+box2.previousSibling.style.backgroundColor = 'yellow';
+box2.nextSibling.style.backgroundColor = 'red';*/
+//兼容性写法:
+var pre = box2.previousElementSibling || box2.previousSibling;
+var net = box2.nextElementSibling || box2.nextSibling;
+pre.style.backgroundColor = 'red';
+net.style.backgroundColor = 'yellow';
+//单个子元素(firstChild和lastChild)
+var firstChild = ul1.firstElementChild || ul1.firstChild;
+var lastChild = ul1.lastElementChild || ul1.lastChild;
+firstChild.style.backgroundColor = 'blue';
+lastChild.style.backgroundColor = 'green';
+
+//所有子元素
+var arr = box2.parentNode.children;
+for(var i=0;i<arr.length;i++){
+    arr[i].style.backgroundColor = 'black';
+}
+console.log(box2.parentNode.childNodes);
+console.log(box2.parentNode.children);
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

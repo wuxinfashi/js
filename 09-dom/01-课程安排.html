@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!--
+事件三要素:
+1.事件源 2.事件类型 3.驱动程序-匿名函数
+-->
+
+<div id ='box'>
+</div>
+
+
+<script>
+
+//体验事件
+//需求:点击盒子,弹出对话框alert(1)
+/*
+概述:
+    1.事件源(引发后续事件的标签)(元素可以不获取,直接使用,但不允许)
+    2.事件(js以及定义好了)
+    3.事件驱动程序(对样式和html的操作)(DOM操作就是核心)
+*/
+
+/*步骤:
+    1.获取事件源(document.getElementById('box'))
+    一共五种:
+    var arr1 = document.getElementsByTagName()
+    var arr2 = document.getElementsByClassName()
+不要求掌握:
+    var arr3 = document.getElementsByName()
+    var arr4 = document.getElementsByTagNameNS()
+
+
+    2.绑定事件(事件源.事件 =function () { 事件驱动程序})
+   1. 匿名绑定
+    2.用函数名绑定,不能写返回值:
+    div.onclick = fn;
+    function fn(){ 事件}
+    3.行内绑定<div id='box' onclick = 'fn(){}'></div>
+
+    3.书写事件驱动程序*/
+
+
+    document.getElementById('box');
+    box.onclick = function () {
+//        alert(1);
+//        可以操作标签的属性和样式
+        box.className ='aaa';
+        box.style.width = '200px';/*需要加""*/
+        box.style.height = '200px';
+        box.style.backgroundColor = 'red';
+
+    }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

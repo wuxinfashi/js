@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-image: url("i2.jpg");
+        }
+        #content{
+            width: 1000px;
+            height: 800px;
+            background-color: rgba(245,156,96,0.3);
+            margin: 0 auto;
+        }
+        .tip{
+            width: 300px;
+            height: 200px;
+            background-image: url("i1.jpg");
+            background-size: cover;
+            position: absolute;
+            left: 300px;
+            top: 150px;
+        }
+
+        .num{ position: absolute;
+            top: 50px;
+            left: 10px;
+            font-size: 13px;
+        }
+        .close{ position: absolute;
+            top: 50px;
+            left: 180px;
+            font-size: 13px;
+        }
+        .tip_c{
+            position: absolute;
+            top: 80px;
+            left: 10px;
+            font-size: 15px;
+        }
+        .name{
+            font-size: 15px;
+            position: absolute;
+            top: 150px;
+            left: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<!--纸条墙-->
+<div id="content">
+    <div class="tip" id="tip1">
+        <!--纸条-->
+        <div class="tip_h" title="双击关闭纸条">
+            <div class="num">第[456123]条 2018-4-1 18:10:40</div>
+            <div class="close" title="关闭纸条">x</div>
+            <div class="clr"></div>
+        </div>
+        <div class="tip_c">普天同庆,天下大同!</div>
+        <div class="tip_f">
+            <!--<div class="icon">-->
+                <!--<img src="i1.jpg" width="80px" >-->
+            <!--</div>-->
+            <div class="name">不愿意透露姓名的黄先生</div>
+            <div class="clr"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+//    需求:克隆盒子,然后随机位置,点击纸条的时候,压住其他的纸条
+//思路:获取纸条,克隆,随机数值,添加到父盒子中,然后绑定事件,提高层级
+
+
+//创建多张纸条:
+for(var i=0;i<=10;i++){
+
+    var tip1 = document.getElementById("tip1");
+    var content = document.getElementById("content");
+    var newTip = tip1.cloneNode(true);
+//复制以后id会重复,解决方法:
+newTip.id = newTip.id + i;
+//随机数值绑定到纸条上(top不要超过400,left不要超过700)
+//var topValue = Math.random()*400;(random的值为0-1,*400就是0-400)
+//var leftValue = Math.random()*700;
+//生成范围内随机数的方法:
+    var tmax=700;
+    var lmax=1000;
+    var min = 250;
+    var topValue =Math.floor(Math.random()*(tmax-min+1)+min);
+    var leftValue =Math.floor(Math.random()*(lmax-min+1)+min);
+    newTip.style.top = topValue+'px';
+    newTip.style.left = leftValue+'px';
+//添加到父盒子中:
+    content.appendChild(newTip);
+    var counter = 1;
+    newTip.onclick = function () {
+        this.style.zIndex = counter;
+        counter++;
+    };
+    tip1.onclick = function () {
+        this.style.zIndex = counter;
+        counter++;
+    };
+    //绑定事件,提升事件层级
+
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

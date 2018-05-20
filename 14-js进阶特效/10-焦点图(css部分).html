@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 490px;
+            height: 170px;
+            padding:5px;
+            border: 1px solid #cccccc;
+            margin: 200px auto;
+        }
+        .inner{
+            width: 490px;
+            height: 170px;
+            overflow: hidden;
+            position: relative;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            left: 0;
+            width: 500%;
+
+        }
+        li{
+            float: left;
+        }
+        .square{
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+        span{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #ccc;
+            text-align: center;
+            margin: 5px;
+            line-height: 16px;
+            cursor: pointer;
+            background-color: white;
+        }
+        .current{
+            background-color: darkorange;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="inner">
+        <ul>
+            <li><img src="images/01.jpg" ></li>
+            <li><img src="images/02.jpg" ></li>
+            <li><img src="images/03.jpg" ></li>
+            <li><img src="images/04.jpg" ></li>
+            <li><img src="images/05.jpg" ></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

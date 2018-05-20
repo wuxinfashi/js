@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    需求:单个自定义对象
+//    缺点:1.创建多个对象的时候十分繁琐
+//2.创建多个对象,for循环不能修改名字的值
+
+
+    var student = new Object();
+
+    student.name = "张三";
+    student.age = 18;
+
+    student.sayHi = function () {
+        console.log(this.name + "说:大家好");
+    }
+
+    console.log(student.name);
+    student.sayHi();
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

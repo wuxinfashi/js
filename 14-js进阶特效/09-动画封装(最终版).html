@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            height:200px;
+            background-color: #ccc;
+            position: relative;
+            padding:5px;
+
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color:pink ;
+            position: absolute;
+            left: 0;
+        }
+        button{
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<button>移动200</button>
+<button>移动400</button>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+
+
+<script>
+    var btnArr = document.getElementsByTagName('button');
+    var box2 = document.getElementsByClassName('box2')[0];
+    var timer = null;
+
+    btnArr[0].onclick = function () {
+        animate(box2,200,20,20);
+    }
+    btnArr[1].onclick = function () {
+        animate(box2,400,20,20);
+    }
+
+
+//老师解决方法:
+//    var val = target-box2.offsetLeft;
+//if(Math.abs(val)<=Math.abs(speed)){
+//        box2.style.left = target + "px";
+//        clearInterval(timer);
+//}
+
+    function animate(ele,target,speed,interval) {
+        if(!speed){speed = 10;}
+        if(!interval){interval=30;}
+        var speed = (target-ele.offsetLeft)>0?speed:-speed  ;
+        timer= setInterval(function () {
+            if(ele.offsetLeft === target){
+                clearInterval(timer);
+
+            }
+            else {
+                ele.style.left = box2.offsetLeft + speed +"px";
+            }
+        },interval)
+    }
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

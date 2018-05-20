@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script>
+
+    //全局变量
+    
+    (function (window) {
+        // 创建一个构造函数
+       function Random() {}
+        //在原型对象中添加方法
+        Random.prototype.getRandom = function (min,max) {
+           return Math.floor(Math.random()*(max-min)+min);
+       }
+        //把Random对象暴露给顶级对象window--->外部可以直接使用这个对象
+        window.Random = Random;
+    })(window);
+
+    //实例化随机数对象
+    var rm=new Random();
+    //调用方法产生随机数
+    console.log(rm.getRandom(3,10));
+
+
+  </script>
+</head>
+<body>
+
+
+</body>
+</html>

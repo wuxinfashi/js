@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    栈操作
+//    push(),在数组最后面插入项,返回数组长度
+var arr = [1,2,3,4];
+//arr.push(5);
+var aaa = arr.push(5);
+console.log(arr);
+console.log(aaa);/*返回值*/
+//    pop():取出数组中最后一项,返回最后一项
+var arr1 = [1,2,3,4];
+var bbb =arr1.pop();
+console.log(arr1);
+console.log(bbb);
+//队列操作
+//shift():取出数组中第一个元素,返回最后一项
+var arr2 = [1,2,3,4];
+var ccc =arr2.shift();
+console.log(arr2);
+console.log(ccc);
+//    unshift():在数组最前面插入项,返回数组长度
+var arr3 = [1,2,3,4];
+var ddd = arr3.unshift(0);
+console.log(arr3);
+console.log(ddd);
+
+
+//排序:
+//reverse():反转数组,将原数组翻转,返回值也是翻转后的数组
+var arr4 = [1,2,3,4];
+var eee = arr4.reverse();
+console.log(arr4);
+console.log(eee);
+
+//    sort():给数组排序,返回排序后的数组,如何排序看参数
+//能对数字和字母进行排练(只能通过第一位进行排列,参照首字母的Unicode)
+//无参数:按照Unicode的编码,从小到大排序
+//解决方法:可以通过回调函数进行规制设置
+var arr5 = ['e','d','c','b','a'];
+var fff = arr5.sort();
+console.log(arr5);
+console.log(fff);
+
+/*
+回调函数例子:
+console.log(arr4.sort(function (a,b) {
+ //a-b>0 升幂排序
+ //b-a>0 降幂排序
+    return a-b;
+}))
+*/
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

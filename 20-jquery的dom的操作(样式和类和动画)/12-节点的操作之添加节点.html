@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            $("button").click(function () {
+                //创建一个新的jquery对象li
+                var $li = $("<li>我是jquery创建出来的li。用的是append方法添加</li>");
+                //append();    在盒子的最末尾添加一个元素。
+                //在盒子末尾添加
+               $("ul").append($li);    //把新创建的li塞进ul中
+               // $li.appendTo($("ul")); //把新创建的li塞进ul中
+
+                //在盒子最前面添加
+               // $("ul").prepend($li);
+               // $li.prependTo($("ul"));
+
+
+                //下面两个方法是操作兄弟元素的。放在兄弟元素之后或者之前
+                //after();$("元素").after(新元素);新元素在标志元素之后
+               // $("li").after($li);
+
+                //before();$("元素").before(新元素);新元素在标志元素之前
+                // $("li").before($li);
+
+            })
+        });
+    </script>
+</head>
+<body>
+    <button>添加li</button>
+
+    <ul>
+        <li>我是土著li</li>
+    </ul>
+
+</body>
+</html>

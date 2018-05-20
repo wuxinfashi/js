@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    转化为字符串 1. 变量+"" 2.变量+"abc" 3.string(变量） 4.变量.toString()注意第4种方法不可以用于undefined和null
+    var bool = true;
+    var num = 111;
+    var aaa;
+    var bbb = null;
+
+    console.log(typeof(bool+""));
+    console.log(typeof(num+""));
+    console.log(typeof(aaa+""));
+    console.log(typeof(bbb+""));
+
+/* 任何简单类型转化为number（此类型转换容易产生NaN,一旦被转换的变量中含有非数字字符，都容易出现NaN。方法：1.减乘除一个数字。2.
+* */
+var str = "11";
+var bool = true;/*不能加''*/
+//方法1，不能用加
+console.log(typeof (str-0));
+console.log(typeof (str*1));
+console.log(typeof (str/1));
+console.log(typeof (bool-0));
+console.log(typeof (bool*1));
+console.log(typeof (bool/1));
+//数据类型是用string定义的
+
+// 方法2.Number（变量).注：number（变量）是错误的，开头必须大写。
+    console.log(Number(str));
+    console.log(Number(bool));
+//    console.log(number(bool));错误的
+
+//方法3：parseInt(变量)和parseFloat(变量)注：第一个如果非数字则为NaN，此方法为截图数值，可以包含非数字字母。
+var str2 = "12.34abc";
+console.log(parseInt(str2));
+console.log(parseFloat(str2));
+
+//转换为Boolean。1.Boolean（变量）2.!!变量
+    var date = new Date();
+    var bool1 = Boolean("111");
+    console.log(typeof (bool1));
+    var bool2 = 123;
+    console.log(typeof (!!bool2));
+    console.log(Boolean(0));
+    console.log(Boolean(""));
+    console.log(Boolean(null));
+    console.log(!!1);
+    console.log(!!"abc");
+    console.log(!!date);
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

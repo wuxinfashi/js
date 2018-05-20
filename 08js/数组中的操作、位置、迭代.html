@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    操作方法:
+//    1.concat()方法:把参数拼接到当前数组(原数组不变)
+var arr1 = ['1','2','3'];
+var arr2 = ['a','b','c'];
+var arr3 = arr1.concat(arr2);
+console.log(arr1);
+console.log(arr2);
+console.log(arr3);
+
+
+//    2.slice()方法:把当前数组中截取一个新数组,不影响原来数组(参数从start从0开始,end从1开始)(正数超出范围的按最大值截取)(负数从右边开始)
+//索引值包括左边不包括右边
+
+var arr4 = arr3.slice(0,4);
+var arr5 = arr3.slice(2,-1);
+console.log(arr4);
+console.log(arr5);
+
+//    3.splice()方法:删除或替换当前数组的某些项目,参数start,deleteCount,options(要替换的项目)(该操作能操作和截取原数组)(替换元素不能以数组形式存在)
+//var arr6 = arr3.splice(4);
+var arr7 = arr3.splice(0,4);
+console.log(arr3);
+//console.log(arr6);
+console.log(arr7);
+
+/*var arr8=['关羽','张飞','刘备'];
+var arr9 = arr3.splice(0,3,'关羽','关羽','关羽');
+console.log(arr9);*/
+//    位置方法:
+//    1.indexOf()
+
+//    2.lastindexOf()
+
+//    迭代方法(不会修改原数组):
+//    every()、filter()、forEach（）、map（）、some（）
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

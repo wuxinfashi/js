@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>识别鲤鱼</button>
+<button>去掉</button>
+<select name="识别水产" id="sel">
+    <option value="0">香蕉</option>
+    <option value="1">苹果</option>
+    <option value="2">鲤鱼</option>
+    <option value="3">大鸭梨</option>
+
+</select>
+
+<script>
+//    点击识别水产,立刻把option对应的鲤鱼选择属性设置为selected
+    var btn = document.getElementsByTagName('button')[0];
+    var btn1 = document.getElementsByTagName('button')[1];
+    var sel = document.getElementById('sel');
+    var optArr = document.getElementsByTagName('option');
+    btn.onclick = function () {
+        optArr[2].selected ='selected';
+//        alert(sel.value);
+    }
+btn1.onclick = function () {
+    optArr[2].removeAttribute('selected');
+    optArr[0].selected ='selected';
+    optArr[0].removeAttribute('selected');
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+//    循环绑定事件需要用this
+    for(i=0;i<arr.length;i++){
+        arr[i].onclick = function () {
+//            this指的是函数调用者(在本例子里面指的是arr）和i并没有关系，所以不会出错
+            img.src = this.href;/*(必须使用this,用arr[i]会导致4次以后函数无法使用)*/
+            return false;
+        }
+
+
+
+
+
+    }
+</script>
+</body>
+</html>

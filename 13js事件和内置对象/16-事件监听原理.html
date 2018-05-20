@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+
+    btn.addEventListener("click",fn1);
+    btn.addEventListener("click",fn2);
+
+    function fn1() {
+        console.log("九尺龙泉万卷书,上天生我意何如");
+    }
+    function fn2() {
+        console.log("不能报国平天下,枉我男儿大丈夫");
+    }
+
+//原理：（了解）（自己封装一个）
+
+    function fn(str，fn，ele) {
+        //            不能直接执行函数,因为我们不知道以前有没有绑定过其他事件
+//            进行判断,如果以前有过绑定事件,那么把以前的执行完毕再执行现在的事件
+//            如果没有被定义过事件该事件源的事件属性应该是null,对应的布尔值是false
+        var oldEvent = ele["on"+str];
+        ele["on"+str] =function () {
+            if(oldEvent){
+//                因为oldEvent他本身就是函数,那么后面加一个()就是执行函数
+                oldEvent();
+                fn();
+            }
+            else {
+//                没有绑定过事件
+//                fn();
+            }
+
+        }
+    }
+
+
+</script>
+</body>
+</html>

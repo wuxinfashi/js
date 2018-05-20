@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            background-image: url("IMAG1397.jpg") ;
+            display: block;
+            width: 1000px;
+            height: 1000px;
+        }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="nodesmall" id="node_small">
+    <a href="#"></a>
+    <div class="erweima hide" >
+        <img src="IMAG1389.jpg" alt=""  >
+    </div>
+</div>
+
+
+<script>
+window.onload = function () {
+//    需求:鼠标放到小图片上显示大图片(添加show类名,去掉hide类名)
+//    鼠标移开小图片,隐藏大图片(添加hide类名,去掉show类名)
+
+    var a = document.getElementsByTagName('a')[0];
+    var er = document.getElementsByClassName('erweima hide')[0];
+    a.onmouseover = function () {
+//        er.className = 'erweima show';
+//        了解:字符串操作,把字符串中的hide替换成show
+        er.className = er.className.replace('hide'/*(被替换的值)*/,'show'/*(替换值)*/);
+    }
+
+    a.onmouseout = function () {
+//        er.className = 'erweima hide';
+        er.className = er.className.replace('show','hide');
+    }
+
+
+
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>

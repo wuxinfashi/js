@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/player.css"/>
+</head>
+<body>
+<!--figure:语义化标签,表示多媒体元素-->
+<figure>
+    <figcaption>
+        视频播放器
+    </figcaption>
+    <div class="player">
+        <video src="video/fun.mp4"></video>
+        <div class="controls">
+            <!--播放按钮--><!--fa fa-play是一个字体图标-->
+            <a href="javascript:;" class="switch fa fa-play"></a>
+            <!--播放进度条:-->
+            <div class="progress">
+                <!--播放进度:-->
+                <div class="line"></div>
+                <!--总长:-->
+                <div class="bar"></div>
+            </div>
+            <div class="timer">
+                <span class="current">00:00:00</span>/<span class="total">00:00:00</span>
+            </div>
+            <!--全屏按钮-->
+            <a href="javascript:;" class="expand fa fa-arrows-alt"></a>
+        </div>
+    </div>
+</figure>
+
+    <script>
+    $(function () {
+        // 需求:
+        // 1.加载完毕后显示图标
+        // 2.播放功能:点击播放按钮播放视频
+        // 暂停功能:点击播放后切换为暂停图标,点击可暂停
+        // 3.播放进度条,当前播放时间的显示
+        // 4.全屏播放功能,点击全屏播放按钮全屏播放,点击取消按钮取消全屏
+        // 5.视频跃进功能
+        // 6.播放完毕重置的功能
+
+        // 步骤:
+        // 1.获取相关的元素
+
+        var $video = $('video');
+        var video = $video[0];
+
+        var $total = $('.total');
+        // 播放暂停按钮:
+        var $switch = $('.switch');
+        // 进度条:
+        var $line = $('.line');
+
+        var $current = $('.current');
+        // 全屏按钮:
+        var $expand =$('.expand');
+        // 总进度条:
+        var $bar = $('.bar');
+
+        var formateTime = function(time){
+            // 01:15:15 时间格式
+            var h = Math.floor(time/60/60);
+            // 求出剩下的时间,并转化为分钟
+            var m = Math.floor(time % 3600 / 60);
+            var s = Math.floor(time % 60);
+            // 注意时长可能小于10,需要在前面填充0:
+            return (h >= 10 ? h : '0' + h) + ':' + (m >= 10 ? m : '0' + m) + ':' + (s >= 10 ? s : '0' + s);
+        }
+
+
+        // 2.加载完毕以后显示视频
+        // 多媒体的api是dom提供的,所以需要使用原生dom
+        video.oncanplay = function () {
+            $video.show();
+            // 系统获取的视频时长单位为s秒
+            // console.log(video.duration);
+            // 显示视频总时长:
+            var duration = formateTime(video.duration);
+            $total.html(duration) ;
+        }
+
+        // 视频播放和暂停功能:
+        $switch.on('click',function () {
+            // 如果有播放按钮就使用播放功能,通过类名来判断
+            if($switch.hasClass('fa-play')){
+                video.play();
+                // 切换为暂停按钮:
+                $switch.removeClass('fa-play').addClass('fa-pause');
+            }
+            else if($switch.hasClass('fa-pause')){
+                video.pause();
+                $switch.removeClass('fa-pause').addClass('fa-play')
+            }
+        })
+
+        // 进度条:
+        // ontimeupdate是随着时间变化就会触发的事件
+        video.ontimeupdate = function () {
+            /* 当前播放时间 console.log(video.currentTime);*/
+            $current.html(formateTime(video.currentTime));
+            /*进度显示  通过长度  百分比*/
+            var ratio = video.currentTime / video.duration;
+            var p = ratio * 100 + '%';
+            $line.css('width', p);
+        };
+
+        // 全屏/取消全屏功能:
+        $expand.on('click',function () {
+            if($expand.hasClass('fa-arrows-alt')){
+                // 全屏操作:
+                video.webkitRequestFullScreen();
+                // 更改按钮:
+                $expand.removeClass('fa-arrows-alt').addClass('fa-compress');
+            }else {
+                // 主要取消全屏是document不是video
+                document.webkitCancelFullScreen();
+                $expand.removeClass('fa-compress').addClass('fa-arrows-alt');
+            }
+        })
+
+        /*5.跃进功能*/
+        $bar.on('click',function (e) {
+            /*获取点击的位置和进度条宽度的比例*/
+            /*通过比例去计算播放时间*/
+            /*把播放时间设置好了 进度也会改变*/
+            var width = $bar.width();
+            /* e.offsetX e.offsetY 当前点击的地方 距离坐标的坐标和上边的坐标  相对于当前元素的 */
+            var place = e.offsetX;
+            /*计算播放时间*/
+            var time = (place / width) * video.duration;
+            /*设置*/
+            video.currentTime = time;
+            /*触发 播放时间更改事件  */
+            /*必须视频加载完成的时候才能看到效果 */
+            /*遇到跃进没有效果  file形式打开页面 */
+        })
+
+        /*6.播放完毕重置功能*/
+        video.onended = function () {
+            video.currentTime = 0;
+            /*播放按钮*/
+            $switch.addClass('fa-play').removeClass('fa-pause');
+        }
+
+
+    })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        // 操作方法1:css(json)
+        $(function () {
+            $('div').css({"width":"100px","height":"100px","background":"red"})
+        })
+
+        // 操作方法2:css(属性,值)单个操作
+        $(function () {
+            $('div').css("background",'pink')
+        })
+
+        // 操作方法3:获取属性
+        // 如果有多个元素,则将返回第一个元素对应的属性
+            $(function () {
+               var $color= $('div').css("backgroundColor");
+               console.log($color);
+            })
+
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+<div></div>
+</body>
+</html>

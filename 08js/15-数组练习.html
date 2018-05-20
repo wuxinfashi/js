@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    求数组中每一个元素出现的次数
+//利用对象来做,我们想知道a出现了几次,c出现了几次,x出现了几次.
+//利用键值对比较方便,用数组就不太方便
+//思路:创建一个对象,判断数组中的元素,在对象中是否存在,如果存在值+1,否则不变
+
+    var arr =['c','a','a','x','c','a','x','c'];
+var json = {};
+//console.log(json'dadsad');不存在的属性,返回值是undefined
+for(i=0;i<arr.length;i++){
+        if(json[arr[i]] ){
+json[arr[i]]+= 1;
+        }
+        else {
+            json[arr[i]] = 1;
+        }
+
+}
+console.log(json);
+
+
+//编写一个方法,去掉数组中的重复元素
+
+    var arr =[1,2,3,4,5,2,3,4];
+    console.log(arr);
+//    思路:创建一个新数组,循环遍历,只有新数组中有老数组中的值,就不用添加了
+console.log(fn(arr));
+
+    function fn(arr) {
+        var arr1 = new Array;
+        for(var i=0;i<arr.length;i++){
+            var bool = true;
+            for(k=0;k<arr1.length;k++){
+                if(arr[i] ===arr1[k]){
+                    bool = false;
+                }
+            }
+            if(bool){
+                arr1[arr1.length] = arr[i];
+            }
+        }
+        return arr1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d切割轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 300px;
+            width: 560px;
+            margin: 100px auto 0;
+            border: 1px solid #ccc;
+        }
+        .box .imageBox{
+            list-style: none;
+            width: 100%;
+            height: 100%;
+        }
+        .box .imageBox li{
+            width: 100%;
+            height: 100%;
+            float: left;
+        }
+        .box .imageBox li img{
+            display: block;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<!--1.完成这个例子需要用到什么知识-->
+<!--2.回顾一下3d转换-->
+<!--3.轴的正方向，translate rotate 3d转换属性-->
+<!--4.rotateX rotateY rotateZ 旋转方向  方法方式套路-->
+<!--4.1 顺着轴的正方向看  顺时针旋转是负角度  逆时针旋转是正角度-->
+<!--5.过渡完成动画-->
+<!--6.通过jquery辅助操作-->
+
+<div class="box">
+    <ul class="imageBox">
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+    </ul>
+    <!--实体:&lt; &gt;-->
+    <a href="javascript:;" class="left">&lt;</a>
+    <a href="javascript:;" class="right">&gt;</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

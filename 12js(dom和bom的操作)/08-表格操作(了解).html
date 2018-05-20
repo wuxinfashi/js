@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr><td>1</td></tr>
+    <tr><td>2</td></tr>
+    <tr><td>3</td></tr>
+</table>
+
+<script>
+//    动态创建表格的方式:
+//    方式1:createElement():
+/*    方式2:
+    rows :返回值是数组               (只读,table和textarea能用)
+    insertRow()         (只有table能调用)
+    deleteRow()         (只有table能调用)
+    cells               (只读,table和textarea能用)
+    insertCell()        (只有tr能调用)
+    deleteCell(          (只有tr能调用)
+    */
+</script>
+<script>
+    var tab = document.getElementsByTagName('table')[0];
+//    rows:
+    console.log(tab.rows);
+//    insertRow():
+    tab.insertRow(0);/*(参数是插入到第几行,从0开始)*/
+//    deleteRow()
+    tab.deleteRow(2);/*(参数是删除第几行,从0开始)*/
+//    cells:
+    var cells = tab.children[0];
+    console.log(cells.children[1].cells);
+//    insertCell():        (只有tr能调用)
+    cells.children[2].insertCell(0);
+//    deleteCell()
+    cells.children[2].deleteCell(0);
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<button>运动到400,再点击返回0</button>
+<div></div>
+<script>
+//    京东有用到
+//主要用到的三个函数:
+//    Math.ceil()
+//    Math.floor()
+//    Math.round()
+
+//    缓动:如何缓动?步长越来越小
+//    公式:盒子位置 = 盒子本身位置 + (目标位置-盒子本身位置)/10(永远只能接近不能到达)
+//offsetLeft:取值会四舍五入取整
+var btn = document.getElementsByTagName('button')[0];
+var div = document.getElementsByTagName('div')[0];
+btn.onclick = function () {
+    if(div.offsetLeft>=0&&div.offsetLeft<399){
+        huandong(400,20);
+
+    }
+    else if(div.offsetLeft>=400){
+        huandong(0,20);
+    }
+};
+
+    function huandong(target,interval) {
+        if(!interval){interval=30;}
+    var timer = setInterval(function () {
+//        如果是向0的方向走,负值需要向下取整
+        var step = (target - div.offsetLeft)/10;
+        step = step>0?Math.ceil(step):Math.floor(step);
+        //    动画原理:
+        div.style.left = div.offsetLeft + step +"px";
+        if(step<2&&step>=0){
+            div.style.left = target+"px";
+            clearInterval(timer);
+        }
+       else if(step<0&&step>-2){
+            div.style.left = target+"px";
+            clearInterval(timer);
+        }
+        console.log(div.offsetLeft);
+    },interval);
+
+}
+
+
+</script>
+</body>
+</html>

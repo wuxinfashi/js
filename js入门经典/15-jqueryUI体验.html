@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <!--<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>-->
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.structure.min.css">
+    <style>
+        #dragdiv{
+            width: 100px;
+            height: 100px;
+            background-color: #eeffee;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#dragdiv").draggable();
+        })
+    </script>
+
+</head>
+<body>
+<div id="dragdiv">这个是一个可以拖动的元素</div>
+</body>
+</html>

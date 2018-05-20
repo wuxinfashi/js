@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            background-color: greenyellow;
+            display: inline-block;
+            margin: 5px auto;
+            cursor: pointer;
+            width: 100px;
+            height: 30px;
+            font:  14px/30px 'simsum';
+            text-align: center;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        .current{
+            background-color: #990000;
+        }
+    </style>
+    <script src="tools.js"></script>
+    <script>
+//        简单版:
+//        var ul = getEle('list');
+//        var aArr = ul.getElementsByTagName('a');
+//        for(var i=0;i<aArr.length;i++){
+//            aArr[i].onclick = function () {
+//点击哪个a链接让它的父节点添加类
+//                this.parentNode.className = 'current';
+//设置它父节点的其他兄弟类名为空
+//                var other = getAllSibilings(this.parentNode);
+//                for(var j=0;j<other.length;j++){
+//                    other[j].className = '';
+//                }
+//            }
+//        }
+
+
+
+
+//        复杂版:
+    window.onload = function () {
+//    需求:点击a链接,让a链接对应的标签添加类
+//        思路:点击a链接,让他的父亲添加类,其他的li标签类名清空
+        var ul = getEle('list');
+        var liArr = ul.children;
+        for(i=0;i<liArr.length;i++){
+            var a = getFirstNode(liArr[i]);
+            a.onclick = function () {
+                for(var j =0;j<liArr.length;j++){
+                    liArr[j].className ='';
+                }
+                this.parentNode.className = 'current';
+            }
+
+        }
+
+    }
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<div id="menu">
+    <ul id="list">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">播客</a></li>
+        <li><a href="#">博客</a></li>
+        <li><a href="#">相册</a></li>
+        <li><a href="#">关于</a></li>
+        <li><a href="#">帮助</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

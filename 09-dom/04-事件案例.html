@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .top-banner{
+            background: pink;
+            height: 80px;
+        }
+        .w{
+            width:1210px;
+            position: relative;
+            margin: 0 auto;
+            display: inline-block;
+        }
+        img {
+            width: 800px;
+            height: 80px;
+            background-color: blue;
+            z-index: 2;
+            display: inline-block;
+
+
+        }
+        a{
+            position: absolute;
+            text-decoration: none;
+            top:5px;
+            right: 5px;
+            color: #fff;
+            background-color: #000;
+            width: 20px;
+            height: 20px;
+            font: 700 14px/20px 'simsum';
+            text-align: center;
+        }
+
+        .hide{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<div  class="top-banner" id="topBanner">
+    <div class="w">
+        <img src="" alt="">
+        <a href="#" id ='close-banner'>x</a><!--没有#页面不会刷新-->
+    </div>
+</div>
+
+
+
+<script>
+
+//需求:点击按钮,隐藏盒子
+//思路:点击a连接,让top-banner隐藏(display变成none)
+var closeBanner = document.getElementById('closeBanner');
+var topBanner = document.getElementById('topBanner');
+topBanner.onclick = function () {
+topBanner.className += 'hide';/*保留原类名,添加新类名*/
+//topBanner.className = 'hide';/*替换原类名*/
+
+
+}
+
+
+</script>
+</body>
+</html>

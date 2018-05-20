@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Pet() {
+            this.animal = '';
+            this.name = '';
+            this.setAnimal = function (newAnimal) {
+                this.animal = newAnimal;
+            }
+            this.setName = function (newName) {
+                this.name = newName;
+            }
+        }
+
+        var myCat = new Pet();
+        myCat.setAnimal('cat');
+        myCat.setName('haha');
+
+        function Dog() {
+            this.bread = '';
+            this.setBread = function (newBread) {
+                this.bread = newBread;
+            }
+        }
+        Dog.prototype = new Pet();
+        var myDog = new Dog();
+        myDog.setName('Alan');
+        myDog.setBread('greyhound');
+        alert(myDog.name+' is a '+myDog.bread);
+        alert(myCat.name);
+
+
+
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

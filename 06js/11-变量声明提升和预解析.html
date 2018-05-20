@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+//    没有定义变量就用回报错,定义了没有值就是undefined
+//预解析:
+//1.查看语法错误
+//2.变量声明提升和函数整体提升(变量提升的时候只提升变量名,不提升赋值)
+//方法是整体提升
+    var aaa;/*全局变量,第一种方式定义的函数都会预解析*/
+    console.log(aaa);
+    console.log(bbb);
+
+    function fn() {
+        console.log();
+          var bbb;
+          bbb = 111;
+    }
+//函数变量声明提升在函数内照样有用
+//变量有就近原则,存在覆盖变量
+//两个函数中的变量不会相互影响
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

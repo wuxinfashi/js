@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+//    setInterval():
+//一秒打印一个数字
+/*var num=0;
+    var timer1 = setInterval(
+        function time() {
+            console.log(num) ;
+            num++;
+        },1000
+    )*/
+//timer1;
+
+//    setTimeout():
+//等待2秒后执行
+    var timer2 = setTimeout(
+        function () {
+            console.log(1);
+        },2000
+    )
+//定义方法2:
+//setTimeout(函数名,时间)
+
+//    定义方法3:比较少用
+//间隔实行函数,并使用传递值
+    setInterval("fn(111)",1000)
+function fn(aaa) {
+    console.log(aaa);
+}
+</script>
+</body>
+</html>

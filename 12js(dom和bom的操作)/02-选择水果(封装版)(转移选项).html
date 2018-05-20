@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select{
+            width: 100px;
+            height: 200px;
+            font-size: 16px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="sell" size="10" multiple>
+    <option >香蕉</option>
+    <option >苹果</option>
+    <option >鸭梨</option>
+    <option >葡萄</option>
+</select>
+<button>>>></button>
+<button><<<</button>
+<button>></button>
+<button><</button>
+
+<select  id="buy" size="10" multiple>
+
+</select>
+
+<script>
+//    需求:点击相应的按钮,转移全部或者单个选项
+//思路:当点击>>>时,获取所有子元素,直接添加到右侧
+    var sellArr = document.getElementById('sell');
+    var buyArr = document.getElementById('buy');
+    btn1=document.getElementsByTagName('button')[0];
+    btn2=document.getElementsByTagName('button')[1];
+    btn3=document.getElementsByTagName('button')[2];
+    btn4=document.getElementsByTagName('button')[3];
+
+//        函数封装:(如果不带参数,可以直接绑定函数名)(如果需要带参数,则需要匿名函数去调用)
+function fn1(ele1,ele2) {
+    var arr = ele1.children;
+    for(var i=arr.length-1;i>=0;i--){
+        ele2.appendChild(arr[0]);
+    }
+};
+
+
+function fn2(ele1,ele2) {
+    var arr = ele1.children;
+    for(var i=arr.length-1;i>=0;i--){
+        if(arr[i].selected === true){
+            ele2.appendChild(arr[i]);
+        }
+
+    }
+}
+
+
+btn1.onclick = function () {
+//    通过匿名函数调用
+        fn1(sellArr,buyArr);
+    };
+
+btn2.onclick = function () {
+    fn1(buyArr,sellArr);
+};
+
+    btn3.onclick = function(){
+        fn2(sellArr,buyArr);
+    };
+
+btn4.onclick = function () {
+    fn2(buyArr,sellArr);
+};
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

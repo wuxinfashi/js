@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 490px;
+            height: 170px;
+            padding:5px;
+            border: 1px solid #cccccc;
+            margin: 200px auto;
+        }
+        .inner{
+            width: 490px;
+            height: 170px;
+            overflow: hidden;
+            position: relative;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            left: 0;
+            width: 500%;
+
+        }
+        li{
+            float: left;
+        }
+        .square{
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+        span{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #ccc;
+            text-align: center;
+            margin: 5px;
+            line-height: 16px;
+            cursor: pointer;
+            background-color: white;
+        }
+        .current{
+            background-color: darkorange;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="inner">
+        <ul>
+            <li><img src="images/01.jpg" ></li>
+            <li><img src="images/02.jpg" ></li>
+            <li><img src="images/03.jpg" ></li>
+            <li><img src="images/04.jpg" ></li>
+            <li><img src="images/05.jpg" ></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+</div>
+
+<script>
+//    需求:鼠标放到小方块上面的时候,图片向左移动到指定的图片
+//    思路:绑定事件,移动li
+//    步骤:1.获取事件源
+//    2.绑定事件和书写事件驱动程序(for循环绑定)
+//    3.点亮盒子
+//    3.移动ul(向左移动,给定目标为-止,放到第n个小方块上向左移动n-1个图片的宽
+
+      var inner = document.getElementsByClassName('inner')[0];
+      var spanArr = inner.children[1].children;
+      var ul = inner.children[0];
+        var imgWidth = inner.offsetWidth;
+
+      for(var i=0;i<spanArr.length;i++){
+//          属性绑定,自定义属性储存盒子的索引值
+          spanArr[i].index = i;/*绑定的属性是索引值,索引移动的时候不用减1*/
+          spanArr[i].onmouseover = function () {
+//              点亮盒子,排他思想
+              for(var j=0;j<spanArr.length;j++){
+                  spanArr[j].className = '';
+              }
+              this.className = 'current';
+//              利用框架移动盒子
+              animate(ul,-this.index*imgWidth);
+          }
+
+      }
+
+//      老师版:
+      function animate(ele,target) {
+          clearInterval(ele.timer);
+          var speed = target>ele.offsetLeft?10:-10;
+          ele.timer = setInterval(function () {
+              var val = target - ele.offsetLeft;
+              ele.style.left = ele.offsetLeft + speed + "px";
+              if(Math.abs(val)<Math.abs(speed)){
+                  ele.style.left = target +"px";
+                  clearInterval(ele.timer);
+              }
+          },10)
+      }
+
+
+
+
+/*
+自己版:
+function animate(ele,target,speed,interval) {
+    if(!speed){speed = 10;}
+    if(!interval){interval=30;}
+    var speed = (target-ele.offsetLeft)>0?speed:-speed  ;
+    timer= setInterval(function () {
+        if(ele.offsetLeft === target){
+            clearInterval(timer);
+        }
+        else {
+            ele.style.left = ele.offsetLeft + speed +"px";
+        }
+    },interval)
+}
+*/
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // 读取cookie
+    function getCookie(name){
+        var nameEquals = name + "=";
+        var crumbs = document.cookie.split(';');
+        for(var i=0;i<crumbs.length;i++){
+            var crumb = crumbs[i];
+            // 验证是否空数组
+            if(crumb.indexOf(nameEquals)===0){
+                // 解码所提取的字符(从nameEquals的长度开始截取到crumb.length结束)
+                return decodeURI(crumb.substring(nameEquals.length,crumb.length));
+            }
+        }
+        return null;
+    }
+    console.log(getCookie());
+// 删除cookie
+// 1.只需要把保存日期设置成为今天以前的日期,浏览器就会自动删除
+
+    function deleteCookie() {
+        createCookie(name,"",-1);
+    }
+
+
+</script>
+</body>
+</html>

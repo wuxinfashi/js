@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<canvas id="canvasl" width="400px" height="300">
+    <p>你的浏览器不支持canvas</p>
+</canvas>
+
+<script>
+    var context ;
+    var x=100;
+    var y=100;
+    var counter = 0;
+    function paint() {
+        context.beginPath();
+        context.fillStyle="#ff0000";
+        context.arc(x,y,15,0,Math.PI*2,true);
+        context.closePath();
+        context.fill();
+    }
+    function animate() {
+        context.clearRect(0,0,400,300);
+        counter++;
+        x+=50*Math.sin(counter);
+        y+=50*Math.cos(counter);
+        paint();
+    }
+    window.onload = function () {
+        context = canvasl.getContext('2d');
+        setInterval(animate,100);
+    }
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

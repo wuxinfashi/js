@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        button{
+            margin: 10px;
+        }
+        div{
+            width:200px;
+            height:200px;
+            background-color: pink;
+        }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<button>隐藏</button>
+<div>
+    临千仞之溪,非才长也,位高也!
+</div>
+<script>
+//    需求:点击button,隐藏盒子,改变文字,再点击按钮,就显示出来
+var button = document.getElementsByTagName('button')[0];
+var div = document.getElementsByTagName('div')[0];
+button.onclick=function () {
+//    执行程序之前判断innerHtml的属性值,判断属性值需要用===.
+    if(button.innerHTML === '隐藏'){
+    div.className='hide';
+//    修改文字要看文字的位置
+    button.innerHTML = '显示';
+    }
+    else if(button.innerHTML === '显示'){
+        div.className='show';
+//    用innerHTML修改文字
+        button.innerHTML = '隐藏';
+    }
+}
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 500px;
+            margin: 200px auto;
+        }
+        ul{
+            list-style: none;
+            border: 1px solid red;
+            width: 392px;
+            padding: 5px;
+        }
+
+        #txt{
+            width: 400px;
+        }
+        #sousuo{
+            width: 70px;
+        }
+        li{
+            font-size: 15px;
+        }
+        li:hover{
+            background-color: #cccccc;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <input type="text" id="txt">
+    <input type="button" value="搜索" id="sousuo">
+<!--    <ul>
+        <li>hahahah</li>
+    </ul>-->
+</div>
+
+
+<script>
+//    需求:输入内容(.onkeyup,.onkeydown),模拟服务器获取内容,创建ul,并在其中显示
+var arr=['a','avfcx','avs','abd','anrg','amjy','agbnm','ahg','afgh','arth','afg']
+var box = document.getElementById('box');
+var inp = box.children[0];
+    inp.oninput = function () {
+        //        1.bug1:输入多个字符会出现多个ul; 解决方法:每次输入前先清除旧的ul
+        var oldUl = box.getElementsByTagName('ul')[0];
+//        object类型,只要不是null,对于的Boolean类型都是true
+        if(oldUl){
+            box.removeChild(oldUl);
+        }
+//        2.bug2:如果input中内容为空,不能再生成ul;(break)
+        if(inp.value===''){
+//            切断函数
+            return ;
+        }
+        //获取输入内容:
+        var inpValue = inp.value;
+        //        我要从数组中查询以input中输入内容为开头的信息,添加到li中,然后转换成字符串
+        //        遍历老数组,遍历每一项,判断哪一项符合
+        var newArr = [];
+        //        创建一个字符串,里面添加满了li和对应的内容.
+        for(i=0;i<arr.length;i++){
+            if(arr[i].indexOf(inpValue)===0){
+                newArr.push("<li>"+arr[i]+"</li>");
+            }
+        }
+        var str = "";
+        //        3.bug3:如果数组中没有以input中开头的元素,切断函数
+//        如果新数组中长度为0,则证明以input内容为开头的元素,在arr中不存在
+        if(newArr.length===0){
+//            切断函数
+            return;
+        }
+        str = newArr.join('');
+        var ul = document.createElement("ul");
+//        把创建好的内容添加到ul中
+        ul.innerHTML = str;
+        box.appendChild(ul);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

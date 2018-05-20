@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    什么情况下使用回调函数?
+//    回调函数一般是用于定义一个规则来使用的
+//    规则的传递只能通过函数来使用,通过变量无法达成
+
+console.log(fn(10,5,test1));
+
+
+    function fn(num1,num2,demo) {
+        return demo(num1,num2);
+    }
+
+//定义4个规则:加减乘除
+function test1(a,b) {
+    return a+b;
+}
+
+function test2(a,b) {
+    return a-b;
+}
+
+function test3(a,b) {
+    return a*b;
+}
+
+function test4(a,b) {
+    return a/b;
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

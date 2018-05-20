@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px auto;
+
+        }
+    </style>
+</head>
+<body>
+<div    class="box"></div>
+<div    id="box"></div>
+<div    class="box"></div>
+<div></div>
+
+
+
+
+<script>
+
+    function $(str) {
+//          给索引查字符,获取第一个字符
+        var str1 = str.charAt(0);
+//        因为传递过来的值带有#,索引我们要从第二项开始搜索
+        if(str1 ==="#"){
+            return document.getElementById(str.slice(1));
+        }
+        else if(str1 ==="."){
+            return document.getElementsByClassName(str.slice(1));
+        }
+        else{
+            return document.getElementsByTagName(str);
+        }
+
+    }
+//jquery的原理
+    $('# box').style.backgroundColor ="red";
+    var boxArr = $(".box");
+    for(var i=0;i<boxArr.length;i++){
+        boxArr[i].style.width = "200px";
+    }
+    var divArr = $('div');
+    for(var i=0;i<divArr.length;i++){
+    divArr[i].style.border = "1px solid #000";
+}
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            margin: 10px;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+        }
+        .current{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+
+
+<script>
+//    需求:鼠标放到哪个button上,哪个button变色(添加类)
+    var btnArr = document.getElementsByTagName('button');
+    for(var i=0; i<btnArr.length;i++){
+        btnArr[i].onmouseover = function () {
+
+            this.className = 'current';
+        }
+//        自己想的:
+        btnArr[i].onmouseout = function () {
+            this.removeAttribute('class');
+        }
+    }
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

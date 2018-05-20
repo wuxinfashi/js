@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+        window.onload = function () {
+            function makeMenu() {
+                var h2Arr = document.getElementsByTagName('h2');
+                var menu = document.createElement('div');
+                var menuUl = document.createElement('ul');
+                menu.appendChild(menuUl);
+                for(var i=0;i<h2Arr.length;i++){
+//                    获取文本节点的值
+                    var itemText = h2Arr[i].childNodes[0].nodeValue;
+                    var menuLi = document.createElement('li');
+                    menuUl.appendChild(menuLi);
+                    var menuLiA = document.createElement('a');
+                    menuLiA=menuLi.appendChild(menuLiA);
+                    menuLiA.setAttribute('href','#item'+i);
+                    var menuText = document.createTextNode(itemText);
+                    menuLiA.appendChild(menuText);
+                    var anc = document.createElement('a');
+                    anc.setAttribute('name','item'+i);
+                    document.body.insertBefore(anc,h2Arr[i]);
+                }
+                document.body.insertBefore(menu,document.body.firstChild);
+            }
+            makeMenu();
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+<h1>The Extremadura Region of Western Spain</h1>
+<h2>Geography of The Region</h2>
+<p>2017年6月5日，辽宁丹东，考生即将走向考场，母校用免费的壮行午餐表达祝福。6月5日中午，东港一中食堂的两层餐厅均提前为考生开放。一千多名考生在品尝免费壮行午餐的同时，也充分地感受了来自母校的浓浓情意。就餐过程中，一千多名考生一改往日的不苟言笑，三年中第一次在餐厅“放肆”地表达少年豪情，场面壮观犹如一次热闹的派对。据东港一中相关负责人介绍，自送考至今20多年，东港一中每年都会在考生参加高考前提供一顿免费的壮行餐；遵循上车饺子下车面的习俗，壮行餐中，饺子不可或缺。</p>
+<h2>Where to Stay</h2>
+<p>每到一个城市，除了这个城市的风景，最能体现当地老百姓生活的，当属当地的菜市场，一方水土，一方菜式，一方人情，在这个五味杂陈的地方，新鲜的蔬果、生鲜，熟悉或陌生的农夫口音，总觉得在他们嘴里说出来的生活更生动更直接，也更能打动我。所以要想了解当地人的生活，菜市场是一定要来逛一逛走一走的。第一次来到沙巴，来到山打根，山打根是是马来西亚最大的渔港。恰好我们此行所住的酒店旁就是山打根规模最大的中央巴刹。“巴刹”是马来语市场的意思，很奇怪，远在新疆的维吾尔族人，称市场也叫“巴扎”，语音近似，但卖的东西不同，沙巴的巴刹卖的都是海鱼。在这个港口，每天清晨会有很多渔船捕鱼归来，在这里卸货。清晨时分来到中央巴刹的渔港，脸上挂着汗水与笑容的山打根渔民们忙碌的一天就在渔港清晨的朝阳中拉开了序幕......</p>
+<h2>Climate</h2>
+<p>山打根曾经是婆罗洲的首府，七十年代当地木材业非常发达又靠近港口，吸引了不少商旅人士，其中有大批香港人前来做生意，加上景貌相似，因此素有“婆罗洲的小香港"之称。工人们穿梭忙碌的场景也让我想起了港剧中的很多镜头。
+</p>
+<h2>What to See</h2>
+<p>浪漫不是空泛的感觉。在布拉格，源于那些奇妙的楼宇、众多的尖塔、波希米亚的风情、和伏尔塔瓦河一起流淌的美妙旋律。
+    又是一个金秋，我和家人缓步于这个兴起于中世纪的城中，倘佯在‘千塔’脚下的大街小巷，浏览着被誉为‘建筑博物馆'里的一幢幢各个历史时期、风格迥异的建筑。到处弥漫的艺术氛围包裹着亲情、天伦，这段最明媚的时光使我终生难忘！</p>
+<h2>Gastronomy</h2>
+<p>马关条约》是中国清朝政府和日本明治政府于1895年4月17日(光绪二十一年三月二十三日)在日本马关(今山口县下关市)签订的不平等条约，原名《马关新约》，日本称为《下关条约》或《日清讲和条约》。《马关条约》的签署标志着甲午中日战争的结束。中方全权代表为李鸿章、李经方，日方全权代表为伊藤博文、陆奥宗光。
+
+    根据条约规定，中国割让辽东半岛(后因三国干涉还辽而未能得逞)、台湾岛及其附属各岛屿、澎湖列岛给日本，赔偿日本2亿两白银。中国还增开沙市、重庆、苏州、杭州为商埠，并允许日本在中国的通商口岸投资办厂。
+
+    《马关条约》使日本获得巨大利益，刺激其侵略野心;使中国民族危机空前严重，半殖民地化程度大大加深。该条约适应了帝国主义列强对华资本输出的需要，随后列强掀起了瓜分中国的狂潮。 </p>
+
+</body>
+</html>

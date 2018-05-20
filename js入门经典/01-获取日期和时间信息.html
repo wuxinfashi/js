@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>current date and time</title>
+    <style>
+        p{
+            font:14px normal arial,verdana,helvetica;
+        }
+    </style>
+    <script>
+        function telltime() {
+            var out = '';
+            var now = new Date();
+            out +='<br/>Date: '+now.getDate();
+            out +='<br/>Month: '+(now.getMonth()+1);/*JS中月份从0开始*/
+            out +='<br/>Year: '+now.getFullYear();
+            out +='<br/>Hours: '+now.getHours();
+            out +='<br/>minutes:'+now.getMinutes();
+            out +='<br/>seconds: '+now.getSeconds();
+            document.getElementById('div1').innerHTML = out;
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+The Current date and time are:<br/>
+<div id="div1"></div>
+<script>
+    telltime();
+</script>
+<input type="button" onclick="location.reload()" value="Refresh">
+
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//除了自身和1以外，不能被其他数整除
+/*    function isPrime(num) {
+        for(var i=2;i<=num/2;i++){
+            if(num%i===0){
+                return false;
+            }
+
+        }
+        return true;
+
+    }
+    console.log(isPrime(12));*/
+
+
+//拓展3：判断一个数是不是指数，只需要判断到他的平方根
+function isPrime(num) {
+    for(var i=2;i<=Math.sqrt(num);i++){
+        if(num%i===0){
+            return false;
+        }
+
+    }
+    return true;
+
+}
+console.log(isPrime(4));
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

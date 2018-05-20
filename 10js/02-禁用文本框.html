@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+账号:<input type="text" value="你好" ><button>禁用</button><button>解禁</button><br>
+密码:<input type="password" value="哈哈哈">
+
+
+<script>
+//    需求:禁用文本框:
+    var inp = document.getElementsByTagName('input')[0];
+    var but1 = document.getElementsByTagName('button')[0];
+    var but2 = document.getElementsByTagName('button')[1];
+    but1.onclick = function () {
+        inp.disabled = true;/*(不允许用空字符串)*//*只能是true类型*/
+    }
+but2.onclick = function () {
+//    inp.disabled = false;/*(不允许用空字符串)*//*只能是true类型*/
+    inp.removeAttribute('disabled');
+}
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

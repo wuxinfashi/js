@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style> .map{
+        width: 800px;
+        height: 600px;
+        background-color: #CCC;
+        position: relative;
+    }</style>
+    <script src="common.js"></script>
+    <script>
+        // 1.产生随机数对象,并将其变成全局变量
+        window.onload = function (ev) {
+            // 1.产生随机数对象
+            (function (window) {
+                function Random() {}
+                Random.prototype.getRandom = function (min,max) {
+                    // 必须加上return
+                   return Math.floor(Math.random()*(max-min)+min);
+                }
+                // 将一个新的Random对象传给全局对象
+                window.Random = new Random();
+                // 必须加上实际参数
+            })(window);//自调用函数必须加上;号
+
+            // 产生小方块
+            (function (window) {
+                var map = document.getElementsByClassName('map')[0];
+
+                // 创建食物构造函数
+                function Food(width,height,color) {
+                    this.width = width ||20;
+                    this.height = height || 20;
+                    this.color = color || "green";
+                    this.x = 0;
+                    this.y = 0;
+                    this.element = document.createElement("div");
+                }
+
+                // 初始化小方块:
+                Food.prototype.init = function (map) {
+                    var div = this.element;
+                    div.style.position = "absolute";
+                    div.style.width = this.width+"px";
+                    div.style.height = this.height+"px";
+                    div.style.backgroundColor = this.color;
+                    map.appendChild(div);//将小方块添加进地图
+                    this.render(map);//将小方块坐标随机化
+                }
+
+                Food.prototype.render = function (map) {
+                    // this一直代指的是Food对象,因为是init调用的render,fd实例调用的init
+                    var x =Random.getRandom(0,map.offsetWidth/this.width)*this.width;
+                    var y =Random.getRandom(0,map.offsetHeight/this.height)*this.height;
+                    this.x = x;
+                    this.y = y;
+                    var div=this.element;
+                    div.style.left=this.x+"px";
+                    div.style.top=this.y+"px";
+
+                }
+
+                var fd=new Food(20,20,"green");
+                fd.init(map);
+            })(window);
+
+            //自调用函数:小蛇
+            // 参数是蛇中每个小方块的宽高
+            (function Snake(width,height,direction) {
+                this.width = width || 20;
+                this.height = height || 20;
+                this.direction = direction || right;
+                // 对身体进行初始化
+                this.body = [
+                    {x:3,y:2,color:"red"}, //头
+                    {x:2,y:2,color:"orange"}, //身体
+                    {x:1,y:2,color:"orange"} //身体
+                    ];
+
+
+
+
+
+
+
+
+            })();
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="map"></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+</div>
+
+
+<script>
+
+window.onscroll = function () {
+    console.log( window.pageYOffset);
+//    document.body.scrollTop在新版本火狐谷歌中不可以使用
+}
+
+//兼容性写法:
+var scrollTop = window.pageYOffset
+    || document.documentElement.scrollTop
+    || document.body.scrollTop;
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+//    trim():只能去除字符串前后的空白(中间的空格不去除)
+//    replace():替换   str.replace(/aaa/gi,"bbb");
+//    split()          字符串变数组
+//    search():           看一个字符串对象与一个正则表达式是否匹配
+/*localCompare():(操作单个字符)
+s1.localeCompare(s2)
+1.当s1>s2 , 返回正数 一般是1
+2.s1 == s2 返回0
+3.s1<s2 返回负数,一般是-1 */
+//fromCharCode():把ASCII码转换成字符串
+//string.fromCharCode(101,102,103)
+
+
+
+
+
+//trim():
+var str1 = " a    b   c   ";
+
+console.log(str1);
+console.log(str1.trim());
+
+//replace():替换
+var str2 = "Today is a fine day, today is a fine day,"
+console.log(str2);
+console.log(str2.replace("today","tomorrow"));
+console.log(str2.replace(/today/g,"tomorrow"));/*(全局替换)*/
+console.log(str2.replace(/today/gi,"tomorrow"));/*(全局替换且忽略大小写)*/
+
+//split:字符串变数组
+
+    var str3 = "关羽|张飞|刘备";
+    console.log(str3);
+    console.log(str3.split(""));/*把每一个元素分开*/
+    console.log(str3.split("|"));/*去除特殊符号,并把每一个元素分开*/
+    console.log(str3.split());/*将整个字符串塞进一个数组*/
+
+
+
+
+
+</script>
+</body>
+</html>

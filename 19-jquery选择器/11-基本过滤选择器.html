@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            //利用过滤选择器设置偶数位元素的背景
+            //获取奇数索引(从0开始算起,实际上是偶数行)
+            var $liodd = $("ul li:odd");
+            $liodd.css("background","pink");
+
+            //利用过滤选择器设置奇数位元素的背景
+            //获取偶数索引(从0开始算起,实际上是奇数行)
+            var $lieven = $("ul li:even");
+            $lieven.css("background","red");
+
+            //利用过滤选择器设置指定索引值元素的背景
+            var $lifirst = $("ul li:eq(0)");
+            $lifirst.css("background","yellow");
+
+            //获取页面上所有的li，然后最大索引值就是长度-1；
+            var li = $("li");
+            var $lifirst = $("ul li:eq("+(li.length-1)+")");
+            $lifirst.css("background","blue");
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>班长今天你老帅了，嗷嗷帅....</li>
+        <li>班长今天你老帅了，嗷嗷帅....</li>
+        <li>班长今天你老帅了，嗷嗷帅....</li>
+        <li>班长今天你老帅了，嗷嗷帅....</li>
+        <li>班长今天你老帅了，嗷嗷帅....</li>
+        <li>班长今天你老帅了，嗷嗷帅....</li>
+    </ul>
+</body>
+</html>

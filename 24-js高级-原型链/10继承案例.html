@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script>
+
+    //动物有名字,有体重,有吃东西的行为
+    //小狗有名字,有体重,有毛色, 有吃东西的行为,还有咬人的行为
+    //哈士奇名字,有体重,有毛色,性别, 有吃东西的行为,还有咬人的行为,逗主人开心的行为
+
+
+    //动物的构造韩素
+    function Animal(species,weight) {
+      this.species= species;
+      this.weight=weight;
+    }
+    //动物的原型的方法
+    Animal.prototype.eat=function () {
+      console.log("天天吃东西,就是吃");
+    };
+
+    //狗的构造函数
+    function Dog(color) {
+      this.color=color;
+    }
+    Dog.prototype=new Animal("狗","50kg");
+    Dog.prototype.bitePerson=function () {
+      console.log("哼~汪汪~咬死你");
+    };
+
+    //哈士奇
+    function ErHa(sex) {
+      this.sex=sex;
+    }
+    ErHa.prototype=new Dog("黑白色");
+    ErHa.prototype.playHost=function () {
+      console.log("哈哈~要坏衣服,要坏桌子,拆家..嘎嘎...好玩,开心不,惊喜不,意外不");
+    };
+
+    // 通过继承,二哈获得了动物、狗、和哈士奇的属性和方法
+    var erHa=new ErHa("雄性");
+    console.log(erHa.species,erHa.weight,erHa.color);
+    erHa.eat();
+    erHa.bitePerson();
+    erHa.playHost();
+
+
+//这种继承方法有缺点:如果是先改变指向后赋值方法和属性,则原本应该指向该对象的原型的方法和属性将赋值到父级对象的原型中去
+    // 最终通过原型链将指向Object.prototype中的__proto__就是null
+
+
+
+
+  </script>
+</head>
+<body>
+
+
+</body>
+</html>

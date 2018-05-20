@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        jQuery(function () {
+            var $ul = $("ul");
+            //find(selector); 从jquery对象的后代中查找
+            //必须指定参数，如果不指定获取不到元素。length === 0
+            $ul.find('li').css({'background':'pink'});
+            console.log($ul.find());
+
+            //chidlren(selector); 从jquery对象的子代中查找
+            //不写参数获取所有子元素。
+            $ul.children('li').css({"background":'blue'});
+
+            //eq(索引值); 从jquery对象的子代中查找该索引值的元素
+            //要求该数组中的第几个。
+            $ul.children().eq(2).css({'background':'green'});
+
+            //next(); 该元素的下一个兄弟元素
+            $ul.children().eq(2).next().css({'background':'yellowgreen'});
+
+            //siblings(selector); 该元素的所有兄弟元素
+            $ul.children().eq(2).siblings().css({'border':'2px solid black'});
+
+            //parent(); 该元素的父元素（和定位没有关系）
+            console.log($ul.children().eq(0).parent())
+
+
+        });
+    </script>
+</head>
+<body>
+
+    <ul>
+        <li>北京的天是晴朗的天，通州人民好喜欢，眼望丰台高声喊，我爱你，海淀....</li>
+        <li class="box">北京的天是晴朗的天，通州人民好喜欢，眼望丰台高声喊，我爱你，海淀....</li>
+        <span>北京的天是晴朗的天，通州人民好喜欢，眼望丰台高声喊，我爱你，海淀....</span>
+        <li class="box">北京的天是晴朗的天，通州人民好喜欢，眼望丰台高声喊，我爱你，海淀....</li>
+        <li>北京的天是晴朗的天，通州人民好喜欢，眼望丰台高声喊，我爱你，海淀....</li>
+        <li>北京的天是晴朗的天，通州人民好喜欢，眼望丰台高声喊，我爱你，海淀....</li>
+        <a  id="box" href="#">北京的天是晴朗的天，通州人民好喜欢，眼望丰台高声喊，我爱你，海淀....</a>
+        <ol>
+            <li>我是ol中的li</li>
+            <li>我是ol中的li</li>
+            <li>我是ol中的li</li>
+            <li>我是ol中的li</li>
+        </ol>
+    </ul>
+
+</body>
+</html>

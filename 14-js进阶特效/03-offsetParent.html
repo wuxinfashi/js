@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box1">
+    <div class="box2" style="position: relative">
+        <div class="box3">
+        </div>
+    </div>
+</div>
+
+<script>
+//    offsetParent:（检测父系盒子中带有定位的父盒子节点）(relative,absolute,fixed都行,static不行)
+//父系盒子中谁有定位返回最接近的节点
+var box3 = document.getElementsByClassName('box3')[0];
+console.log(box3.offsetParent);/*都没有定位的话则返回body*/
+
+
+
+
+</script>
+</body>
+</html>

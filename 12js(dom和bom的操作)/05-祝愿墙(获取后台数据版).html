@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-image: url("i2.jpg");
+        }
+        #content{
+            width: 1000px;
+            height: 800px;
+            background-color: rgba(245,156,96,0.3);
+            margin: 0 auto;
+        }
+        .tip{
+            width: 300px;
+            height: 200px;
+            background-image: url("i1.jpg");
+            background-size: cover;
+            position: absolute;
+            left: 300px;
+            top: 150px;
+        }
+
+        .num{ position: absolute;
+            top: 23px;
+            left: 17px;
+            font-size: 15px;
+        }
+        .close{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 13px;
+            left: 261px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .tip_c{
+            position: absolute;
+            top: 75px;
+            left: 30px;
+            font-size: 15px;
+        }
+        .name{
+            font-size: 15px;
+            position: absolute;
+            top: 150px;
+            right: 30px;
+        }
+        .tip_h{
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+<!--纸条墙-->
+<div id="content">
+    <div class="tip" id="tip1">
+        <!--纸条-->
+        <div class="tip_h" title="双击关闭纸条">
+            <div class="num">第[456123]条 2018-4-1 18:10:40</div>
+            <div class="close" title="关闭纸条">x</div>
+            <div class="clr"></div>
+        </div>
+        <div class="tip_c">普天同庆,天下大同!</div>
+        <div class="tip_f">
+            <div class="name">不愿意透露姓名的黄先生</div>
+            <div class="clr"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //    需求:显示很多张不同的祝愿卡,点击关闭按钮,删除标签,点击卡牌提高层级,双击删除卡片.
+//    思路:模拟从后台获取的数据,然后再也没上生成数组的长度个数的tip,然后分别根据内容和时间进行赋值
+var massages = [
+    {"id":1,"name":'mahu','content':'今天你用支付宝了吗?','time':'2018-03-15'},
+    {"id":2,"name":'我是雷锋','content':'今天天气不错啊','time':'2018-03-18'},
+    {"id":3,"name":'呼啦啦啦','content':'这里有一个帅哥','time':'2018-03-10'},
+    {"id":4,"name":'但涉及卡萨丁','content':'我爱知乎','time':'2018-02-15'},
+    {"id":5,"name":'你是傻逼吗','content':'你是全世界最帅的人,哈哈哈哈哈,骗你的','time':'2018-01-15'},
+    {"id":6,"name":'vdasc','content':'喵星人称霸世界','time':'2018-01-15'},
+    {"id":7,"name":'全世界最帅的人','content':'愚蠢的地球人啊','time':'2018-01-15'},
+    {"id":8,"name":'getbcvd ','content':'中二病最棒了','time':'2018-01-15'},
+    {"id":9,"name":'啊哈哈哈','content':'我爱lol','time':'2018-01-15'},
+    {"id":10,"name":'nhjgk','content':'你是最骚的','time':'2018-01-15'}
+]
+//console.log(massages.length);
+//    步骤:
+//    1.循环生成div标签,然后为innerHTML添加内容
+    //随机数值绑定到纸条上(top不要超过400,left不要超过700)
+    //var topValue = Math.random()*400;(random的值为0-1,*400就是0-400)
+    //var leftValue = Math.random()*700;
+    //生成范围内随机数的方法:
+    var content = document.getElementById('content');
+    for(var i=0;i<massages.length;i++){
+        var newDiv = document.createElement('div');
+        newDiv.className = 'tip';
+        newDiv.id = massages[i].id;
+//        赋值内容
+        newDiv.innerHTML = '<div class="tip_h" title="双击关闭纸条">'+
+                                    '<div class="num">'+massages[i].time+'</div>'+
+                                     '<div class="close" title="关闭纸条">x</div>'+
+                                        '<div class="clr"></div>'+
+                                        '</div>'+
+                                    '<div class="tip_c">'+massages[i].content+'</div>'+
+                                    '<div class="tip_f">'+
+                                   ' <div class="name">'+massages[i].name+'</div>'+
+                                    '<div class="clr"></div>'+
+                                    '</div>';
+//        标签定位:
+        var tmax=700;
+        var lmax=1000;
+        var min = 250;
+        var topValue =Math.floor(Math.random()*(tmax-min+1)+min);
+        var leftValue =Math.floor(Math.random()*(lmax-min+1)+min);
+        newDiv.style.top = topValue+'px';
+        newDiv.style.left = leftValue+'px';
+//        添加标签到盒子里面
+        content.appendChild(newDiv);
+//        提升层级:
+        newDiv.onclick =  fn ;
+//        绑定关闭按钮,单击关闭标签
+        var closeDiv = newDiv.getElementsByClassName('close')[0];
+        closeDiv.onclick = function () {
+//            content.removeChild(newDiv);不能用newDiv来代表该标签,newDiv已经变成最后一个了
+            content.removeChild(this.parentNode.parentNode);
+        }
+        var doubleCloseDiv = newDiv.getElementsByClassName('tip_h')[0];
+        doubleCloseDiv.ondblclick = function () {
+            content.removeChild(this.parentNode);
+        }
+
+    }
+    var counter = 1;
+    function fn() {
+        this.style.zIndex = counter;
+        counter++;
+    }
+    tip1.onclick = function () {
+        this.style.zIndex = counter;
+        counter++;
+    };
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

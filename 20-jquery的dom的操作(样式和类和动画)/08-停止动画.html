@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            display: none;
+            background-color: pink;
+        }
+    </style>
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+//         .stop(clearQueue,jumpToEnd)
+//         作用：停止当前正在执行的动画
+//         为什么要停止动画？
+//          如果一个以上的动画方法在同一个元素上调用，那么对这个元素来说，后面的动画将被放到效果队列中。这样就形成了动画队列。（联想：排队进站）
+//          动画队列里面的动画不会执行，直到第一个动画执行完成。
+//          当调用stop()方法后，队列里面的下一个动画将会立即开始。但是，如果参数clearQueue被设置为true，那么队列面剩余的动画就被删除了，并且永远也不会执行。
+//           如果参数jumpToEnd被设置为true，那么当前动画会停止，但是参与动画的每一个CSS属性将被立即设置为它们的目标值。
+//          比如：slideUp()方法，那么元素会立即隐藏掉。如果存在回调函数，那么回调函数也会立即执行。
+
+
+        $(function () {
+            //点击按钮后产生动画
+            $("button:eq(0)").click(function () {
+                $("div").slideDown(2000);
+            })
+
+            //滑出动画
+            $("button:eq(1)").click(function () {
+                $("div").slideUp(2000);
+            })
+
+            $("button:eq(2)").click(function () {
+                $("div").stop();   //都不写，默认两个都是false;（后续动画会执行，立即停止当前动画`）
+
+                // 第一个参数表示后续动画是否要执行
+                //（true:后续动画不执行  ;false:后续动画会执行）
+                // 第二个参数表示当前动画是否执行完
+                //（true:立即执行完成当前动画  ;false:立即停止当前动画）
+
+                //四种情况：情况1：true,true
+                //（后续动画不执行，立即执行完成当前动画）
+               // $("div").stop(true,true);
+
+                //四种情况：情况2：false,true
+                //（后续动画会执行，立即执行完成当前动画）
+               // $("div").stop(false,true);
+
+                //四种情况：情况3：true,false
+                //（后续动画不执行，立即停止当前动画`）
+               // $("div").stop(true,false);
+
+                //四种情况：情况4：true,false
+                //（后续动画会执行，立即停止当前动画`）
+//                $("div").stop(false,false);
+            })
+        })
+    </script>
+</head>
+<body>
+<button>滑入</button>
+<button>滑出</button>
+<button>停止</button>
+<div></div>
+
+</body>
+</html>

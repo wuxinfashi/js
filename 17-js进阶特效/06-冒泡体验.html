@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="box1" id="box1">
+    <div class="box2">
+        <div class="box3"></div>
+    </div>
+</div>
+
+<script>
+
+    var box1 = document.getElementById("box1");
+    var box2 = box1.children[0];
+    var box3 = box2.children[0];
+
+//    冒泡和捕获
+   box1.onclick = function () {
+       alert("我是box1");
+   }
+
+   box2.ondblclick = function () {
+       alert("我是box2");
+   }
+    // 即使绑定的事件不一样照样会冒泡上去
+   box3.onclick = function () {
+       alert("我是box3");
+   }
+
+   document.onclick = function () {
+       alert("我是document");
+   }
+
+// addEventListener中第三个参数ture就是选择捕获,false是选择冒泡(默认是false)
+//     捕获是从上往下,冒泡是从下往上
+//    box1.addEventListener("click", function () {
+//        alert("我是box1");
+//    },true);
+//
+//    box2.addEventListener("click", function () {
+//        alert("我是box2");
+//    },true);
+//
+//    box3.addEventListener("click", function () {
+//        alert("我是box3");
+//    },true);
+//
+//    document.addEventListener("click", function () {
+//        alert("我是document");
+//    },true);
+
+
+</script>
+
+</body>
+</html>

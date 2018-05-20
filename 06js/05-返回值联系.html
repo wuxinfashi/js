@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//   1+2=2拓展这个算式
+    var aaa = fn(1,1);
+    alert(aaa);
+    alert(fn(2,2));
+
+    function fn(a,b) {
+//        规则中有几个变化的值就定义几个变量
+        var sum = a+b;
+//        外部要用哪个值,我们就返回哪个值,
+        return sum;
+
+    }
+
+
+//return后所有代码不执行(切断代码运行)
+demo();
+function demo() {
+    console.log(1);
+    console.log(2);
+    console.log(3);
+//    return 可以切断函数.break可以跳出循环,continue可以跳出本次循环进入下一个循环
+    return;
+    console.log(4);
+    console.log(5);
+}
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

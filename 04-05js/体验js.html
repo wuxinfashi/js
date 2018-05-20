@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div onclick="alert('我是行内式')">你好</div>
+<!--alert时要在需要显示的内容外加上''-->
+<script src="../../css/tool.js">
+//    alert(2);外链式内不要写代码
+</script>
+<script type="text/javascript">
+    //    内嵌式
+    alert('我是内嵌式');
+    prompt('请输入：');
+    confirm('你好吗？');
+    //    输出语句
+    console.log("我是控制台输出");
+    console.error("我是错误");/*了解*/
+    console.warn("我是警告");/*了解*/
+    document.write("<h1>我是h1标签</h1>");/*可以输出标签*/
+    /**
+     *
+     * @param a
+     * @param b
+     * @returns {number}
+     */
+    function fn(a,b) {
+        return 111;
+    }
+
+</script>
+</body>
+</html>
